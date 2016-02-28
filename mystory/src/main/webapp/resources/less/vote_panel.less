@@ -1,0 +1,65 @@
+.vote_panel{
+	width: 40px;
+	text-align: center;
+	color: #fff;
+	background-color: #A07B55;
+	display: inline-block;
+	height: 102px;
+	padding: 5px 0;
+	
+	.post_item &{
+		float: left;
+		margin: 0;
+	}
+	.story_item &{
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		height: auto;	
+	}
+	
+	.vote_btn{
+		display: block;
+		border: 1px solid #fff;
+		background: transparent;
+		height: 27px;
+		width: 27px;
+		
+		&.vote_up_btn{
+			background: transparent url('/resources/imgs/arrow_up.png') center center no-repeat;
+			margin: 0 auto 6px;
+			
+			&:hover, &:active{
+				background: white url('/resources/imgs/arrow_up_selected.png') center center no-repeat;	
+			}
+		}
+		&.vote_down_btn{
+			background: transparent url('/resources/imgs/arrow_down.png') center center no-repeat;
+			margin: 6px auto 0;
+			
+			&:hover, &:active{
+				background: white url('/resources/imgs/arrow_down_selected.png') center center no-repeat;	
+			}
+		}
+		
+		&:hover{
+			background: white;
+		}
+	}
+}
+
+.vote_count{
+	display: block;
+	line-height: 24px;
+	white-space: nowrap;
+	font-size: @font-size-large;
+}
+
+.voted_up .vote_btn.vote_up_btn{
+	background: white url('/resources/imgs/arrow_up_selected.png') center center no-repeat;	
+}
+
+.voted_down .vote_btn.vote_down_btn{
+	background: white url('/resources/imgs/arrow_down_selected.png') center center no-repeat;	
+} 

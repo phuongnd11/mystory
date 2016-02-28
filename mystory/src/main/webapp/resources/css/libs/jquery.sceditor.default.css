@@ -1,0 +1,104 @@
+/*! SCEditor | (C) 2011-2013, Sam Clarke | sceditor.com/license */
+
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('/resources/fonts/myriadpro-webfont.eot');
+    src: url('/resources/fonts/myriadpro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/resources/fonts/myriadpro-webfont.woff') format('woff'),
+         url('/resources/fonts/myriadpro-webfont.ttf') format('truetype');
+
+}
+
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('/resources/fonts/myriadpro-it-webfont.eot');
+    src: url('/resources/fonts/myriadpro-it-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/resources/fonts/myriadpro-it-webfont.woff') format('woff'),
+         url('/resources/fonts/myriadpro-it-webfont.ttf') format('truetype');
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('/resources/fonts/myriadpro-semibold-webfont.eot');
+    src: url('/resources/fonts/myriadpro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/resources/fonts/myriadpro-semibold-webfont.woff') format('woff'),
+         url('/resources/fonts/myriadpro-semibold-webfont.ttf') format('truetype');
+    font-weight: bold;
+
+}
+
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('/resources/fonts/myriadpro-semiboldit-webfont.eot');
+    src: url('/resources/fonts/myriadpro-semiboldit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/resources/fonts/myriadpro-semiboldit-webfont.woff') format('woff'),
+         url('/resources/fonts/myriadpro-semiboldit-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+html, body, p, code:before, table {
+	margin: 0;
+	padding: 0;
+	font-family: "MyriadPro", "Times New Roman", sans-serif;
+	font-size: 16px;
+	color: #333;
+}
+html {
+	height: 100%;
+
+	/* Needed for iOS scrolling bug fix */
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+body {
+	position: relative;
+	min-height: 100%;
+	word-wrap: break-word;
+	line-height: 1.6;
+
+	/* Needed for iOS scrolling bug fix */
+	overflow: auto;
+}
+
+a{
+	color: 454545;
+	text-decoration: underline;
+}
+
+a:hover,a:focus{
+	color: #A07B55;
+}
+
+a:active, a:focus{
+	outline: 0 none;
+}
+
+code {
+	background-color: #F9F2F4;
+    border-radius: 4px;
+    color: #C7254E;
+    padding: 2px 4px;
+    white-space: pre-wrap;
+    font-size: 13px;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    margin: 0;
+}
+
+.ie6 code, .ie7 code {margin-top: 0;}
+code:before, code {
+	display: block;
+	text-align: left;
+}
+
+blockquote {
+	border-left: 5px solid #EEEEEE;
+    padding: 11px 22px;
+    margin: 0;
+}
+
+div { min-height: 1.25em; }
+h1, h2, h3, h4, h5, h6 { padding: 0; margin: 0; }

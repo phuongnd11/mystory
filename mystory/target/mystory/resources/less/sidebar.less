@@ -1,0 +1,63 @@
+.sidebar{
+	position: relative;
+}
+
+.sidebar_controls {
+	.ui_block_element();
+	padding: 10px;
+	margin-bottom: 10px;
+	
+	legend{
+		padding: 10px;
+		margin: 0;
+	}
+}
+
+.user_actions {
+	overflow: hidden;
+	padding-top: 5px;
+}
+
+.user_subscribers , .user_mails {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.user_rank{
+	font-style: italic;
+	color: #9400D3;
+	display: inline-block;
+	width: 3em;
+	
+	&.user_rank_1{
+		color: red;
+		font-weight: bold;
+	}
+}
+
+.top_tellers{
+	padding: 0 0 10px 0;
+	
+	.author_upper{
+		padding: 8px 10px;
+		border-bottom: 1px solid #f3f3f3;
+		border-left: 0 none;
+		width: auto;
+		
+		&:last-child{
+			border-bottom: 0 none;
+		}
+	}
+}
+
+.recommended_stories{
+	padding: 0;
+	
+	legend{
+		margin-bottom: 12px;
+	}
+}
+.recommended_item{
+	overflow: hidden;
+	padding: 0 10px 12px 10px;
+}

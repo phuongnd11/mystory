@@ -1,0 +1,85 @@
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select{
+	margin-bottom: 10px;
+	color: @text-color;
+    background-color: @input_background;
+    border: 0 none;
+    border-radius: 0;
+    
+    .box-sizing(border-box);
+    
+    .form-group &{
+    	margin-bottom: 0;
+    }
+}
+
+input.slogan{
+	padding: 4px;
+	height: 27px;
+	line-height: normal;
+}
+
+textarea{
+	resize: none;
+}
+
+.full_width_input {
+	display: block;
+	width: 100%;
+	.box-sizing(border-box);
+}
+
+.half_width_input_left,
+.half_width_input_right{
+	width: 49%;
+	.box-sizing(border-box);
+}
+
+.half_width_input_left{
+	float: left;
+}
+.half_width_input_right{
+	float: right;
+}
+
+.full_width_textarea {
+	margin-top: 10px;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+
+.btn_upload{
+	overflow: hidden;
+	vertical-align: bottom;
+}
+
+.hidden_upload{
+	cursor: pointer;
+    direction: ltr;
+    font-size: 200px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.form-control{
+	color: @text-color;
+    background-color: @input_background;
+    border: 0 none;
+    border-radius: 0;
+    
+	&:focus{
+		border: 1px solid @link_color_hover;
+		box-shadow: none;
+	}
+}

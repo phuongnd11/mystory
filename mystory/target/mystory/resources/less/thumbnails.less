@@ -1,0 +1,96 @@
+.thumbnail{
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	border: 1px solid #dedede;
+	float: left;
+	margin-right: 10px;
+	text-align: center;
+	font-size: 0;
+	overflow: hidden;
+	background-color: white;
+	padding: @thumbnail-large-padding;
+	position: relative;
+	
+	&.nofloat{
+		float: none;
+		margin-right: 0;
+	}
+	
+	&.profile_avatar{
+		max-width: 150px;
+		margin: 0 auto 10px;
+	}
+	
+	>div{
+		overflow: hidden;
+		position: relative;
+	}
+	
+	.user_avatar {
+		float: left;
+		margin-right: 10px;
+	}
+	img{	
+		vertical-align: top;
+		display: inline-block;
+		height: auto;
+		max-width: 100%;
+	}
+	.action_panel{
+		bottom: 5px;
+	    display: none;
+	    left: 0;
+	    margin: 0 auto;
+	    position: absolute;
+	    right: 0;
+	    text-align: center;
+	}
+	
+	&:hover{
+		.action_panel{
+			display: block;
+		}
+	}
+}
+
+.thumbnail-full{
+	padding: @thumbnail-large-padding;
+	
+	img{
+		width: 100%;
+		height: auto;	
+	}
+}
+
+.thumbnail-large{
+	width: @thumbnail-large-size;
+	max-height: @thumbnail-large-max-height;
+	padding: @thumbnail-large-padding;
+	
+	>div{
+		max-height: @thumbnail-large-max-height;
+	}
+	img{
+		width: @thumbnail-large-size;
+	}
+}
+
+.thumbnail-medium{
+	width: @thumbnail-medium-size;
+	max-height: @thumbnail-medium-max-height;
+	padding: @thumbnail-medium-padding;
+	
+	>div{
+		max-height: @thumbnail-medium-max-height;
+	}
+	img{
+		width: @thumbnail-medium-size;
+	}
+}
+
+.featured_img{
+	width: 120px;
+	margin-right: 15px;
+	float: left;
+}

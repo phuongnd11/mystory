@@ -1,0 +1,273 @@
+body {
+	background: @body_background;
+}
+
+h1 , h2 , h3 , h4 , h5 {
+	line-height: 1.4;
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+p {
+	margin: 0 0 5px 0;
+}
+a{
+	text-decoration: underline;
+}
+.divider{
+	background-color: rgba(0, 0, 0, 0);
+	#gradient > .horizontal(#E8E8E8, #E8E8E8);
+    background-position: center center;
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+	padding: 10px 0;
+	text-align: center;
+	line-height: @font-size-base;
+	
+	span{
+		padding: 0 10px;
+		line-height: @font-size-base - 1;
+		vertical-align: top;
+		background-color: @content_background;
+	}
+	
+	&.in_form{
+		padding: 0;
+		height: 1px;
+		margin: 7px 0;
+	}
+}
+
+hr{
+	margin: 10px 0;
+}
+
+.action_divider:before{
+	content: "-";
+	margin: 0 0.3em;
+}
+
+.action_divider_vertical:before{
+	content: "|";
+	margin: 0 0.3em;
+}
+form {
+	margin-bottom: 25px;
+	
+	&:last-child{
+		margin-bottom: 0;
+	}
+	.form-group:last-child{
+		margin-bottom: 0;
+	}
+}
+
+.form-group{
+	position: relative;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+label{
+	font-weight: normal;
+}
+
+legend {
+	font-size: @font-size-larger;
+	color: @text-color-dark;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+
+img {
+	vertical-align: top;
+	max-width: 100%;
+}
+
+footer {
+	color: @text-color-dark;
+	font-size: @font-size-large;
+	padding: 30px 0 70px;
+	text-align: center;
+}
+
+.menu_wrapper {
+	position: relative;
+	background: transparent;
+	margin: 0;
+	z-index: 100;
+}
+.menu_wrapper>*{
+	vertical-align: bottom;
+}
+
+.content_wrapper {
+	margin: 0 auto;
+}
+.content-container{
+	position: relative;
+}
+.main_content {
+	position: relative;
+}
+
+.login-modal {
+	width: 300px;
+	border: 1px solid #ededed;
+	padding: 10px;
+	border-radius: 4px;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.story_item {
+	.ui_block_element();
+	overflow: hidden;
+	padding: 0 185px 0 40px;
+	margin-bottom: 15px;
+	position: relative;
+	min-height: 100px;
+	
+	&.featured {
+		border-left: 5px solid #FFA523;
+		padding-left: 5px;
+	}
+	
+	&.bad_story{
+		opacity: 0.5;
+		color: #999;
+		min-height: 0;
+		
+		.vote_panel,
+		.author_info,
+		.story_item_inner{
+			display: none;
+		}
+		
+		.bad_story_warning{
+			padding: 10px 6px;
+			font-style: italic;
+			font-size: @font-size-small;
+		}
+	}
+}
+
+.story_item_inner{
+	padding: 6px 15px 6px 6px;
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.landing_background{
+	background-color: #fdfdfd;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	font-size: 0;
+	
+	&:before{
+		content: "";
+		vertical-align: middle;
+		height: 100%;
+		width: 0;
+		display: inline-block;
+	}
+}
+
+.landing_content{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 13px;
+	color: white;
+	width: 100%;
+	position: relative;
+    top: -150px;
+}
+
+.landing_form_stripe{
+	background-color: #7ECDEB;
+}
+
+.big_logo{
+	text-align: center;
+	img{
+		vertical-align: top;
+	}
+}
+.login_form{
+	text-align: left;
+	
+	input[type="text"],
+	input[type="password"],
+	.btn{
+		width: 100%;
+		height: 30px;
+	}
+}
+.landing_links, .skip_this{
+	width: 274px;
+	margin: 0 auto;
+	color: #333;
+	padding: 0 15px;
+	margin-bottom: 3px;
+}
+.loading_image{
+	margin: 0 auto;
+	text-align: center;
+	display: none;
+	padding: 10px 0 10px 0;
+	pointer-events: none;
+	z-index: 10000;
+}
+.loadingImgWrapper{
+	display: inline-block;
+}
+
+.wp-editor-wrap *,
+.mceEditor *{
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkite-box-sizing: content-box;
+}
+#scrollToTopPanel{
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	.ui_block_element();
+	border-radius: 3px;
+	display: none;
+	padding: 5px 7px;
+	font-size: @font-size-small;
+	cursor: pointer;
+	color: @link_color;
+	
+	.icon{
+		color: @link_color;
+	}
+	
+	&:hover{
+		opacity: 1;
+		color: @link_color_hover;
+		.icon{
+			color: @link_color_hover;
+		}		
+	}
+}
+
+
+#fb-root {
+    display: none;
+}
+
+.fb-like-box, .fb-like-box span, .fb-like-box span iframe[style] {
+    width: 100% !important;
+}

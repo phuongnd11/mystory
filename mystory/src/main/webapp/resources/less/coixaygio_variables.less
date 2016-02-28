@@ -1,0 +1,83 @@
+// Typography
+// -------------------------
+
+@font-path:        		  "/resources/fonts/";
+@ico-moon-name:			"IcoMoonFree";
+
+@font-family-sans-serif:  Arial, Tahoma, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base: 		  "MyriadPro", "Times New Roman", sans-serif;
+@font-family-base-light:  "MyriadProLight", "Times New Roman", sans-serif;
+@font-family-heading:     "MyriadPro", Tahoma, sans-serif;
+
+@font-size-base:          16px;
+@font-size-large:         18px;
+@font-size-larger:		  20px;
+@font-size-largest:	      22px;
+@font-size-small:         14px;
+@font-size-smaller:		  12px;
+
+@line-height-base:        1.5;
+@line-height-computed:    floor(@font-size-base * @line-height-base);
+
+@headings-font-family:    @font-family-heading;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+
+
+@body_background: #E6DCD0;
+@header_background: #C09A6F;
+@content_background: #fff;
+@border_all_rounded: 1px;
+@border_top_rounded: 1px 1px 0 0;
+@border_bottom_rounded: 0 0 1px 1px;
+
+@ui_block_shadow: 0 1px 1px rgba(0,0,0,0.15);
+@ui_block_border: 0 none;
+
+@text-color-dark: #333;
+@text-color: #454545;
+@text-color-light: #858585;
+@link_color: #454545;
+@link_color_hover: #A07B55;
+
+@input_background: #eaeaea;
+
+@btn_text_color: #fff;
+@btn_background_default: #a5a5a5;
+@btn_background_important: #C09A6F;
+@btn_background_hover: @link_color_hover;
+
+@icon_font_size: 14px;
+@icon_color: #777;
+@icon_voted_up_color: #EF8D02;
+@icon_voted_down_color: #01A4DB;
+
+@thumbnail-large-size: 70px;
+@thumbnail-large-max-height: @thumbnail-large-size*1.5; 
+@thumbnail-large-padding: 4px;
+
+@thumbnail-medium-size: 50px;
+@thumbnail-medium-max-height: @thumbnail-medium-size*1.5;
+@thumbnail-medium-padding: 3px;
+
+@username_default_color: #1E74FD;
+@username_admin_color: #9400D3;
+
+
+// Number of columns in the grid system
+@grid-columns:              12;
+// Padding, to be divided by two and applied to the left and right of all columns
+@grid-gutter-width:         20px;
+// Point at which the navbar stops collapsing
+@grid-float-breakpoint:     @screen-tablet;
+
+// Small screen / tablet
+@container-tablet:            ((720px + @grid-gutter-width));
+
+// Medium screen / desktop
+@container-desktop:           ((940px + @grid-gutter-width));
+
+// Large screen / wide desktop
+@container-lg-desktop:        ((1180px + @grid-gutter-width));

@@ -1,0 +1,397 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.inspireon</groupId>
+	<artifactId>mystory</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>mystory Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<spring.version>3.2.4.RELEASE</spring.version>
+		<junit.version>4.11</junit.version>
+		<tiles.version>3.0.0</tiles.version>
+		<jdk.version>1.7</jdk.version>
+		<org.springframework.social-version>1.1.0.M4</org.springframework.social-version> 
+		<org.springframework.social.facebook-version>1.1.0.M4</org.springframework.social.facebook-version> 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.1.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.1.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>3.1.4.RELEASE</version>
+		</dependency>
+
+		<!-- ========================================== Spring Data ============================================ -->
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.3.1.RELEASE</version>
+		</dependency>
+
+
+		<!-- ========================================== Spring Social ============================================ -->
+		
+		<!-- Spring Social -->
+
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-config</artifactId>
+		    <version>${org.springframework.social-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-core</artifactId>
+		    <version>${org.springframework.social-version}</version>
+		</dependency>
+		<dependency>     
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-security</artifactId>
+		    <version>${org.springframework.social-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-web</artifactId>
+		    <version>${org.springframework.social-version}</version>
+		</dependency>
+		 
+		<!-- Spring Social Facebook -->
+		<dependency>
+		    <groupId>org.springframework.social</groupId>
+		    <artifactId>spring-social-facebook</artifactId>
+		    <version>${org.springframework.social.facebook-version}</version>
+		</dependency>
+		
+		<!-- ========================================== Spring Test ============================================ -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lordofthejars</groupId>
+			<artifactId>nosqlunit-mongodb</artifactId>
+			<version>0.7.7</version>
+		</dependency>
+
+		<!-- ========================================== Java Mail ============================================ -->
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- ========================================== Common ============================================ -->
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<!-- ========================================== Servlets ============================================ -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- ========================================== Tiles ============================================ -->
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<!-- ======================================== XSS ========================================== -->
+
+		<dependency>
+			<groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+			<artifactId>owasp-java-html-sanitizer</artifactId>
+			<version>r209</version>
+		</dependency>
+		<!-- ======================================== MarkDown ========================================== -->
+
+		<dependency>
+			<groupId>org.pegdown</groupId>
+			<artifactId>pegdown</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		<!-- ======================================== Jackson mapper ========================================== -->
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.7</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-core</artifactId> 
+			<version>2.2.3</version> </dependency> <dependency> <groupId>com.fasterxml.jackson.core</groupId> 
+			<artifactId>jackson-databind</artifactId> <version>2.2.3</version> </dependency> 
+			<dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-annotations</artifactId> 
+			<version>2.2.3</version> </dependency> -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+		<!-- ======================================== Image ========================================== -->
+
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+		</dependency>
+
+	</dependencies>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<name>oss.sonatype.org - github-releases</name>
+			<id>oss.sonatype.org-github-releases</id>
+			<url>http://oss.sonatype.org/content/repositories/github-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<repositories>
+		<repository>
+		    <id>spring-milestones</id>
+		    <url>http://repo.springsource.org/libs-milestone/</url>
+  		</repository>
+	</repositories>
+	
+	<build>
+		<finalName>mystory</finalName>
+		<pluginManagement>
+			<plugins>
+			      <plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-resources-plugin</artifactId>
+			        <version>2.6</version>
+			        <configuration>
+			          <encoding>UTF-8</encoding>
+			        </configuration>
+			      </plugin>			
+			    <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>					 			
+				</plugin>
+				<!-- ======================================== YUI Compressor ========================================== -->
+				
+				<plugin>
+					<groupId>net.alchim31.maven</groupId>
+					<artifactId>yuicompressor-maven-plugin</artifactId>
+					<version>1.1</version>
+					<executions>
+						<execution>
+							<id>compress</id>
+              				<phase>process-resources</phase>
+							<goals>
+								<goal>compress</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<force>true</force>
+						<jswarn>false</jswarn>
+						<nosuffix>true</nosuffix>
+						<includes>
+							<include>${basedir}/src/main/webapp/resources/js/libs/*.js</include>
+							<include>${basedir}/src/main/webapp/resources/js/libs/jquery-validate/*.js</include>
+							<include>${basedir}/src/main/webapp/resources/js/libs/pagedown/*.js</include>
+							<include>${basedir}/src/main/webapp/resources/js/*.js</include>
+						</includes>
+						<excludes>
+							<exclude>${basedir}/src/main/webapp/resources/js/libs/compressed/*.js</exclude>
+							<exclude>${basedir}/src/main/webapp/resources/js/libs/less-1.4.1.min.js</exclude>
+							<exclude>${basedir}/src/main/webapp/resources/js/mys-boilerplate.js</exclude>
+							<exclude>${basedir}/src/main/webapp/resources/js/mys-beta-invitation.js</exclude>
+						</excludes>
+						<aggregations>
+            				<aggregation>
+            					<output>${basedir}/src/main/webapp/resources/js/compressed/mys.min.js</output>
+								<includes>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery-1.10.2-min.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery-ui-1.10.3.custom.min.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/bootstrap.min.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/mustache.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/mudim-0.9-r162.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery.loadmask.min.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery-validate/jquery.validate.min.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery-validate/additional-methods.min.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery.ui.widget.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery.iframe-transport.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/jquery.fileupload.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/sceditor/jquery.sceditor.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/sceditor/bbcode.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/libs/sceditor/languages/vi.js</include>
+									
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-core.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-i18n.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-voting.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-modals.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-endless-scrolling.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-userprofile.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-editor.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-validation.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-upload.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-story.js</include>
+									<include>${project.build.directory}/${project.build.finalName}/resources/js/mys-config.js</include>
+								</includes>
+							</aggregation>
+						</aggregations>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
+			<configuration> <encoding>UTF-8</encoding> </configuration> </plugin> <plugin> 
+			<groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
+			<configuration> <encoding>UTF-8</encoding> </configuration> </plugin> -->
+	    <resources>
+	      <resource>
+	        <directory>src/main/resources</directory>
+	        <filtering>true</filtering>
+	      </resource>
+	    </resources>
+	</build>
+    
+	<profiles>
+	    <!-- Development environment @ my laptop -->
+	    <profile>
+	      <id>dev</id>
+	      <properties>
+	        <env>dev</env>
+	        <db.host>localhost</db.host>
+	        <db.name>test</db.name>
+	        <site.url>http://localhost:8080/</site.url>
+	        <image.host>http://localhost:8080/image</image.host>
+	        <image.root>E:/images</image.root>
+	      </properties>
+	    </profile>
+	    <!-- Production environment @ production server -->
+	    <profile>
+	      <id>prod</id>
+	      <properties>
+	        <env>prod</env>
+	        <db.host>localhost</db.host>
+	        <db.name>mystory</db.name>
+	        <site.url>http://mystory.vn:8080/</site.url>
+	        <image.host>http://mystory.vn:8080/image</image.host>
+	        <image.root>/opt/inspireon/mystory/images</image.root>
+	      </properties>
+	    </profile>
+	  </profiles>	
+</project>
+

@@ -1,0 +1,263 @@
+.topic_category {
+	margin: 10px 0;
+}
+
+.category_links {
+	margin-bottom: 10px;
+}
+
+
+.category_link , .topic_action {
+	margin-right: 5px;
+	text-decoration: underline;
+}
+
+.submit_topic {
+	margin-bottom: 10px;
+}
+
+.excerpt{
+	font-size: @font-size-base;
+	font-family: @font-family-base-light;
+	
+	img{
+		max-width: 175px;
+		max-height: 175px;
+	}
+}
+
+.home_story_category{
+	font-size: @font-size-small; 
+}
+
+.topic_name {
+	font-size: @font-size-larger;
+	font-family: @font-family-heading;
+	color: @text-color-dark;
+	line-height: 1.3;
+	margin: 0;
+	font-weight: bold;
+	
+	.post_item &{
+		margin-bottom: 10px;	
+	}
+	
+	a{
+		text-decoration: none;
+		color: @text-color-dark;
+		
+		&:hover, &:focus{
+			color: @link_color_hover;
+		}	
+	}
+}
+
+.post_item{
+	margin-bottom: 25px;
+}
+
+.post_item_inner{
+	.ui_block_element();
+	overflow: hidden;
+	padding: 0;
+	
+	.new_comment &{
+		padding: 20px;
+	}
+}
+
+.post_item_content{
+	overflow: hidden;
+	min-height: 69px;
+	padding: 10px 20px 3px 10px;
+	
+	.first_post &{
+		margin-bottom: 20px;
+		padding: 6px 20px 10px 10px;	
+	}
+}
+.story_featured_img{
+	display: block;	
+	margin-bottom: 20px;
+}
+
+.linked_story{
+	border-top: 1px solid #E8E7E7;
+}
+
+.previous_topic , .next_topic {
+	margin: 0;
+	float: left;
+	width: 50%;
+	padding: 10px;
+	
+	h3, a {
+		font-size: @font-size-base;
+	}
+	
+	&:only-child{
+		width: 100%;
+		border: 0 none;
+	}
+}
+
+.first_post .post_item_footer{
+	clear:both;
+}
+
+.footer_more_info{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: @text-color-light;
+	
+	.first_post &{
+		border-top: 1px solid #e8e7e7;
+	}
+}
+
+.footer_info_item{
+	float: left;
+	border-right: 1px solid #e8e7e7;
+	min-width: 100px;
+	padding: 7px 20px;
+	line-height: 1;
+	height: 30px;
+	text-align: center;
+	font-size: @font-size-small;
+	
+	span{
+		vertical-align: middle;
+	}
+	
+	&:before{
+    	display: inline-block;
+		vertical-align: middle;
+		margin-right: 0.3em;
+    }
+    
+    &.footer_view_count:before{
+		content: "";
+		background: transparent url('/resources/imgs/icon_view_count.png') center center no-repeat;
+		height: 14px;
+		width: 17px;
+    }
+    &.footer_submit_time:before{
+    	content: "";
+    	background: transparent url('/resources/imgs/icon_submit_time.png') center center no-repeat;
+    	height: 14px;
+    	width: 14px;
+    }
+    
+    &.footer_comment_count:before{
+    	content: "";
+    	background: transparent url('/resources/imgs/icon_comment_count.png') center center no-repeat;
+    	height: 15px;
+		width: 18px;
+    }
+    
+    .comment &.footer_submit_time{
+    	float: none;
+    	border-right: 0 none;
+    	display: block;
+    	width: auto;
+    	text-align: left;
+    	padding: 7px 0;
+    	margin-top: 11px;
+    }
+}
+
+.footer_category{
+	text-align: right;
+	padding: 7px 25px;
+	line-height: 1;
+	height: 30px;
+	font-size: @font-size-small;
+	
+	span{
+		vertical-align: middle;
+	}
+	
+	a{
+		vertical-align: middle;
+		font-weight: normal;	
+	}
+}
+
+.footer_actions{
+	padding: 10px 20px;
+	border-top: 1px solid #e8e7e7;
+	
+	.comment &{
+		padding: 10px 0;
+	}
+	
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.protips{
+	font-style: italic;
+	color: #666;
+}
+
+.comment_list_wrapper{
+	position: relative;
+}
+.submit_comment{
+	margin-top: 10px;
+}
+
+.comment.bad_comment{
+	opacity: 0.8;
+	color: #999;
+	
+	.vote_panel,
+	.user_quick_info,
+	.comment_content,
+	.comment_actions{
+		display: none;
+	}
+	
+	.thumbnail.thumbnail-large{
+		width: 14px;
+		padding: 2px;
+		margin-right: 3px;
+	}
+	
+	.content_inner p{
+		font-size: 14px;
+		line-height: 14px;
+		
+		.OP_name{
+			font-size: @font-size-small;
+			line-height: 14px;
+		}
+	}
+	
+	.bad_comment_warning{
+		font-style: italic;
+		font-size: @font-size-small;
+	}
+}
+
+.ie6 code, .ie7 code {margin-top: 0;}
+code:before, code {
+	display: block;
+	text-align: left;
+}
+
+code {
+    padding: 2px 4px;
+    white-space: pre-wrap;
+    font-size: 13px;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    margin: 0;
+}
+
+blockquote{
+	margin: 0;
+}

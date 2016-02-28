@@ -1,0 +1,61 @@
+.categories_container{
+	padding: 0 0 10px 0;
+}
+.categories_list {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+input.search {
+	border: 1px solid #ABABAB;
+	margin: 6px 0 0 0;
+	padding: 4px 2px 4px 25px;
+	height: 27px;
+	background: url("../imgs/search-icon.png") no-repeat scroll 6px 5px white;
+	float: right;
+}
+
+.category_item{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+	font-size: @font-size-large;
+	line-height: @font-size-large;
+	margin: 0;
+	padding: 0;
+	vertical-align: bottom;
+	
+	a {
+		display: block;
+		padding: 6px 10px;
+		margin: 0;
+		text-decoration: none;
+		
+		span{
+			vertical-align: middle;
+		}
+		
+		&.selected {	
+			color: @link_color_hover;
+			border-left: 4px solid @link_color_hover;
+		}
+	}
+}
+
+.category_story_count{
+	line-height: 26px;
+	float: right;
+	width: 2.1em;
+	padding: 0 3px;
+	background: @btn_background_default;
+	color: @btn_text_color;
+    display: inline-block;
+    font-size: @font-size-base;
+    text-align: center;
+    border: 0 none;
+    font-family: @font-family-heading;
+    max-width: 100%;
+    position: relative;
+}

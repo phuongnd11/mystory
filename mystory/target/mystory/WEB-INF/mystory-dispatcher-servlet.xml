@@ -1,0 +1,70 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/util  
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<mvc:annotation-driven />
+	
+
+	<!-- <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+	    <property name="favorPathExtension" value="false" />
+	    <property name="favorParameter" value="true" />
+	    <property name="ignoreAcceptHeader" value="true"/>
+	    <property name="defaultContentType" value="application/json"/>
+	    <property name="mediaTypes" >
+	        <map>
+	        	<entry key="json" value="application/json"/>
+	        	<entry key="xml" value="application/xml"/>
+	        </map>
+	        
+	    </property>
+	</bean> 	 -->
+	
+	<!-- Tiles configurations -->
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+		
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	</bean>
+	
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+		
+		<!-- resolving preparer names as Spring bean definition names -->
+		<property name="preparerFactoryClass"
+		     value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory"/>
+	</bean>
+	
+	<!--  
+	      maps handler methods based on HTTP paths
+	-->  
+   <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	    <property name="messageConverters">
+	      <util:list id="beanList">
+	        <ref bean="jsonMessageConverter"/>
+	      </util:list>
+	    </property>
+	    
+	</bean> 
+	  
+	<!--  
+	      Converts JSON to POJO and vice versa  
+	-->  
+	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>  
+</beans>

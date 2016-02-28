@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/WEB-INF/jsp/layout/layout.jsp" preparer="myStoryViewPrepare">
+		<!-- <put-attribute name="title" expression="${pageTitle}" /> -->
+		<put-attribute name="titleType" value="simple" />
+		<put-attribute name="title" value="siteName" />
+		<put-attribute name="header" value="/WEB-INF/jsp/header/header.jsp" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="" />
+            </definition>
+         </put-attribute>
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp" />
+		<put-attribute name="notification_modal" value="/WEB-INF/jsp/layout/notification_modal.jsp" />
+		<put-attribute name="sidebar">
+            <definition template="/WEB-INF/jsp/sidebars/sidebarBase.jsp">
+                <put-attribute name="sidebarExtensions" value="/WEB-INF/jsp/sidebars/sidebarExtensionDefault.jsp"/>
+                <put-attribute name="newstory" value="/WEB-INF/jsp/sidebars/components/newStoryBtn.jsp" />
+            </definition>
+         </put-attribute>
+	</definition>
+	
+	<definition name="simpleLayout" template="/WEB-INF/jsp/layout/simpleLayout.jsp">
+		<put-attribute name="titleType" value="simple" />
+		<put-attribute name="title" value="siteName" />
+		<put-attribute name="body" value="" />
+	</definition>
+	
+	<definition name="login" extends="simpleLayout">
+		<put-attribute name="title" value="login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+	
+	<definition name="resetPassword" extends="simpleLayout">
+		<put-attribute name="title" value="reset" />
+		<put-attribute name="body" value="/WEB-INF/jsp/resetPassword.jsp" />
+	</definition>
+	
+	<definition name="register" extends="simpleLayout">
+		<put-attribute name="title" value="register" />
+		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
+	</definition>
+	
+	<definition name="homePage" extends="simpleLayout">
+		<put-attribute name="title" value="home" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="/WEB-INF/jsp/logobars/components/logobarHome.jsp" />
+            </definition>
+         </put-attribute>
+		<put-attribute name="sidebar">
+            <definition template="/WEB-INF/jsp/sidebars/sidebarBase.jsp">
+                <put-attribute name="sidebarExtensions" value="/WEB-INF/jsp/sidebars/sidebarExtensionHome.jsp"/>
+                <put-attribute name="newstory" value="/WEB-INF/jsp/sidebars/components/newStoryBtn.jsp" />
+            </definition>
+         </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
+	</definition>
+	
+	<definition name="viewWall" extends="baseLayout">
+		<put-attribute name="titleType" value="complex" />
+		<put-attribute name="title" value="wall" />
+		<put-attribute name="sidebar">
+            <definition template="/WEB-INF/jsp/sidebars/sidebarBase.jsp">
+                <put-attribute name="sidebarExtensions" value="/WEB-INF/jsp/sidebars/sidebarExtensionHome.jsp"/>
+                <put-attribute name="newstory" value="/WEB-INF/jsp/sidebars/components/newStoryBtn.jsp" />
+            </definition>
+         </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/userStories.jsp" />
+	</definition>
+	
+	<definition name="storyDetail" extends="baseLayout">
+		<put-attribute name="titleType" value="complex" />
+		<put-attribute name="title" value="storyDetail" />
+		<put-attribute name="body" value="/WEB-INF/jsp/storyDetail.jsp" />
+		<put-attribute name="sidebar">
+            <definition template="/WEB-INF/jsp/sidebars/sidebarBase.jsp">
+                <put-attribute name="sidebarExtensions" value="/WEB-INF/jsp/sidebars/sidebarExtensionStoryDetail.jsp"/>
+                <put-attribute name="newstory" value="/WEB-INF/jsp/sidebars/components/newStoryBtn.jsp" />
+            </definition>
+         </put-attribute>
+	</definition>
+
+	<definition name="storyCreate" extends="baseLayout">
+		<put-attribute name="title" value="newStory" />
+		<put-attribute name="body" value="/WEB-INF/jsp/storyCreateEdit.jsp" />
+		<put-attribute name="sidebar">
+            <definition template="/WEB-INF/jsp/sidebars/sidebarBase.jsp">
+                <put-attribute name="sidebarExtensions" value="/WEB-INF/jsp/sidebars/sidebarExtensionStoryEdit.jsp" />
+				<put-attribute name="newstory" value="" />
+            </definition>
+         </put-attribute>
+	</definition>
+
+	<definition name="storyEdit" extends="baseLayout">
+		<put-attribute name="title" value="editStory" />
+		<put-attribute name="body" value="/WEB-INF/jsp/storyCreateEdit.jsp" />
+		<put-attribute name="sidebar">
+            <definition template="/WEB-INF/jsp/sidebars/sidebarBase.jsp">
+                <put-attribute name="sidebarExtensions" value="/WEB-INF/jsp/sidebars/sidebarExtensionStoryEdit.jsp" />
+				<put-attribute name="newstory" value="" />
+            </definition>
+         </put-attribute>
+	</definition>
+	
+	<definition name="profileView" extends="baseLayout">
+		<put-attribute name="titleType" value="complex" />
+		<put-attribute name="title" value="profileView" />
+		<put-attribute name="body" value="/WEB-INF/jsp/profileView.jsp" />
+	</definition>
+	<definition name="profileEdit" extends="baseLayout">	
+		<put-attribute name="titleType" value="complex" />
+		<put-attribute name="title" value="profileEdit" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="/WEB-INF/jsp/logobars/components/logobarProfile.jsp" />
+            </definition>
+        </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/profileEdit.jsp" />
+	</definition>
+	<definition name="profileChangePassword" extends="baseLayout">	
+		<put-attribute name="title" value="changepassword" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="/WEB-INF/jsp/logobars/components/logobarProfile.jsp" />
+            </definition>
+        </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/profileChangePassword.jsp" />
+	</definition>
+	<definition name="profileMailbox" extends="baseLayout">
+		<put-attribute name="title" value="mailbox" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="/WEB-INF/jsp/logobars/components/logobarProfile.jsp" />
+            </definition>
+        </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/profileMailbox.jsp" />
+	</definition>
+	
+	<definition name="profileNotification" extends="baseLayout">
+		<put-attribute name="title" value="notification" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="/WEB-INF/jsp/logobars/components/logobarProfile.jsp" />
+            </definition>
+        </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/profileNotification.jsp" />
+	</definition>
+	
+	<definition name="profileMessageDetail" extends="baseLayout">
+		<put-attribute name="title" value="mailbox" />
+		<put-attribute name="logobar">
+            <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
+                <put-attribute name="logobarExtensions" value="/WEB-INF/jsp/logobars/components/logobarProfile.jsp" />
+            </definition>
+        </put-attribute>
+		<put-attribute name="body" value="/WEB-INF/jsp/profileMessageDetail.jsp" />
+	</definition>
+			
+	<definition name="i18n" template="/jsp/i18n.jsp">
+	</definition>
+	
+	<definition name="notFound" extends="baseLayout">
+		<put-attribute name="title" value="404" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/404.jsp" />
+	</definition>
+	
+	<definition name="accessDenied" extends="baseLayout">
+		<put-attribute name="title" value="403" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/403.jsp" />
+	</definition>
+	
+	<definition name="internalServerError" extends="baseLayout">
+		<put-attribute name="title" value="500" />
+		<put-attribute name="body" value="/WEB-INF/jsp/errors/500.jsp" />
+	</definition>
+
+</tiles-definitions>

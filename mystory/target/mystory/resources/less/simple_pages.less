@@ -1,0 +1,106 @@
+body.login,
+body.register,
+body.reset{
+	position: fixed;
+	bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+    
+    &:before{
+    	content: "";
+    	width: 0;
+    	display: inline-block;
+    	height: 100%;
+    	letter-spacing: 0;
+    	word-spacing: 0;
+    	vertical-align: middle;
+    }
+    
+    .modal-dialog{
+    	text-align: left;
+    }
+    
+    .help-block{
+    	font-size: @font-size-small;
+    }
+    
+    form{
+    	padding: 10px;
+    }
+}
+.tnc_modal_message{
+	p{
+		margin-bottom: 10px;
+	}
+}
+
+.rant{
+	color: #999;
+}
+
+.simple_page_element{
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	padding: 0;
+	width: 320px;
+	
+	.submit_box{
+		text-align: right;
+		
+		.btn{
+			min-width: 70px;
+		}
+	}
+	
+	.row div.checkbox{
+		margin: 0;
+	}
+}
+
+.simple_page_tab{
+	list-style: none;
+	&:after{
+		display: table;
+		content: "";
+		clear: both;
+	}
+	
+	li{
+		float: left;
+		width: 50%;
+		
+		a, span{
+			display: block;
+			width: 100%;
+			text-align: center;
+			padding: 10px 0;
+			
+			
+		}
+		
+		a{
+			text-decoration: none;
+			
+			&:hover{
+				color: @link_color;
+				text-decoration: underline;
+			}
+			&.register_tab{
+				background-color: #d1d1d1;
+				box-shadow: 1px -1px rgba(0,0,0,0.15) inset; 
+			}
+			
+			&.login_tab{
+				background-color: #d1d1d1;
+				box-shadow: -1px -1px rgba(0,0,0,0.15) inset;
+			}
+		}
+	}
+}
+
+form.submitted input:invalid{
+	border: 1px solid red;
+}

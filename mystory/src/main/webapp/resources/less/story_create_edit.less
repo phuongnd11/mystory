@@ -1,0 +1,37 @@
+.new_story_editor {
+	.ui_block_element();
+	padding: 20px 10px;
+	
+	&:after{
+		display: table;
+		clear: both;
+		content: "";
+	}
+}
+
+.featured_preview{
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.story_edit_control{
+	margin-bottom: 20px;
+	
+	&:after{
+		display: table;
+		clear: both;
+		content: "";
+	}
+	legend{
+		padding: 5px 0;
+	}
+	&:last-child{
+		margin-bottom: 0;
+	}
+	
+	&:first-child{
+		legend{
+			padding-top: 0;
+		}
+	}
+}

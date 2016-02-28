@@ -1,0 +1,123 @@
+.btn{
+	background: @btn_background_default;
+	color: @btn_text_color;
+    display: inline-block;
+    font-size: @font-size-base;
+    line-height: 36px;
+    height: 36px;
+    padding: 0 7px;
+    text-align: center;
+    border: 0 none;
+    .box-sizing(border-box);
+    font-family: @font-family-heading;
+    max-width: 100%;
+    position: relative;
+    text-decoration: none;
+	
+	&.full_width_input{
+		margin-bottom: 10px;
+		
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	
+	&.btn_header{
+		background-color: #fff;
+		border: 1px solid #fff;
+		color: @link_color_hover;
+		vertical-align: middle;
+		font-size: @font-size-large;
+		transition: none;
+		-webkit-transition: none;
+		-ms-transition: none;
+		-moz-transition: none;
+		-o-transition: none;
+		min-width: 180px;
+		text-transform: uppercase;
+		
+		&:hover, &:active, &:focus{
+			background-color: @btn_background_important;
+			color: #fff;
+		}
+	}
+	&.btn_new_topic{
+		font-weight: bold;		
+		margin-right: 20px;
+		
+	}
+	&.post_action{
+		float: right;
+		min-width: 150px;
+		margin-left: 5px;
+	}
+	&:hover,
+	&:focus{
+		text-decoration: none;
+		color: #fff;
+		background: @btn_background_hover
+	}
+	
+	&.btn_important{
+		background: @btn_background_important;
+		
+		&:hover,
+		&:focus{
+			text-decoration: none;
+			color: #fff;
+			background: @btn_background_hover
+		}
+	}
+	
+	&.btn_profile_ok{
+		height: 27px;
+		line-height: 14px;
+		
+		&:before{
+			content: "";
+			display: inline-block;
+			background: transparent url('/resources/imgs/icon_ok.png') center center no-repeat;
+			width: 19px;
+			height: 14px;
+		}
+	}
+	
+	&.btn_compose_mailbox{
+		float: right;
+		margin: 5px;
+		width: 170px;
+	}
+	&.btn_facebook{
+		background-color: #3B5998;
+		&:before{
+			display: inline-block;
+			content: "";
+			height: 30px;
+			width: 16px;
+			vertical-align: middle;
+			background: transparent url('/resources/imgs/icon_facebook.png') center center no-repeat;
+			margin-right: 0.5em;
+		}
+		&:hover, &:focus{
+			background-color: #3B5998;	
+		}
+	}
+	
+	&.btn_edit_avatar{
+		height: 24px;
+		font-size: @font-size-small;
+		line-height: 24px;
+	}
+}
+
+.btn(){
+	background: @btn_background_default;
+	color: @btn_text_color;
+    display: inline-block;
+    font-size: @font-size-base;
+    line-height: 41px;
+    padding: 0 7px;
+    text-align: center;
+    border: 0 none;
+    .box-sizing(border-box);
+}

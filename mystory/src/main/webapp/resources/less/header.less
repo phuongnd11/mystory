@@ -1,0 +1,141 @@
+.header{
+	background-color: @header_background;
+	box-shadow: @ui_block_shadow;
+	margin-bottom: 20px;
+}
+.header_nav:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.mystory_logo{
+    position: relative;
+	display: inline-block;
+	width: 25%;
+	float: left;
+	height: 86px;
+	white-space: nowrap;
+	
+	&:before{
+		content: "";
+		vertical-align: middle;
+		display: inline-block;
+		height: 100%;
+	}
+	
+	img{
+		max-height: 100%;
+		max-width: 100%;
+		vertical-align: middle;	
+	}
+}
+.header_user{
+	height: 86px;
+	text-align: right;
+	
+	&:before{
+		content: "";
+		vertical-align: middle;
+		display: inline-block;
+		height: 100%;
+	}
+}
+.user_panel {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.user_panel_content {
+	padding: 0;
+}
+
+.user_settings{
+	display: inline-block;
+	vertical-align: middle;
+	width: 32px;
+	height: 32px;
+	position: relative;
+	cursor: pointer;
+	
+	&:hover .user_settings_dialog{
+		display: block;
+	} 
+}
+
+.user_settings_dialog{
+	position: absolute;
+	top: 32px;
+	right: 0;
+	padding-top: 10px;
+	z-index: 10;
+	display: none;
+	
+	&:before{
+		content: "";
+		border-style: solid;
+		border-width: 0 5px 7px 5px;
+		border-color: transparent transparent white transparent;
+		position: absolute;
+		top: 3px;
+		right: 12px;		
+	}
+}
+
+.user_settings_menu{
+	.ui_block_element();
+	padding: 5px 10px;
+	white-space: nowrap;
+	
+	a{
+		text-decoration: none;
+		display: block;
+	}
+}
+
+.top_tab{
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	height: 86px;
+	
+	&:before{
+		content: "";
+		vertical-align: middle;
+		display: inline-block;
+		height: 100%;
+	}
+	
+	li {
+		text-align: center;
+		position: relative;
+		display: inline-block;
+		line-height: 16px;
+		margin-right: 10px;
+		vertical-align: middle;
+		
+		a {
+			font-family: @font-family-heading;
+			display: block;
+			line-height: @font-size-large;
+			font-size: @font-size-large;
+			min-width: 65px;
+			padding: 10px 10px;
+			color: @btn_text_color;
+			font-weight: bold;
+			text-decoration: none;
+			background-color: transparent;
+			text-transform: uppercase;
+			border: 1px solid transparent;
+		}
+		
+		&.selected a{
+			border: 1px solid @btn_text_color; 
+		}
+		&:hover a, &:focus{
+			background-color: rgba(255,255,255,0.15);
+		}
+	}
+}

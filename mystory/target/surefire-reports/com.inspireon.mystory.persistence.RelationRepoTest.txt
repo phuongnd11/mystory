@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.inspireon.mystory.persistence.RelationRepoTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.001 sec

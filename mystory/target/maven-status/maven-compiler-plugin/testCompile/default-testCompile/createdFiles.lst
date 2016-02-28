@@ -1,0 +1,7 @@
+com\inspireon\mystory\persistence\ImageGroupRepoTest.class
+com\inspireon\mystory\persistence\MockObjectUtils.class
+com\inspireon\mystory\persistence\CommentRepoTest.class
+com\inspireon\mystory\persistence\UserRepoTest.class
+com\inspireon\mystory\persistence\StoryRepoTest.class
+com\inspireon\mystory\persistence\NewsFeedRepoTest.class
+com\inspireon\mystory\persistence\RelationRepoTest.class

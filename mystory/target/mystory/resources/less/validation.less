@@ -1,0 +1,44 @@
+form{
+	.error{
+		border: 1px solid #DB5050;
+	}
+	
+	&:not(.nopopup_validate) label.error{
+		background: #FDF7F7;
+	    border-radius: 4px;
+	    right: 100%;
+	    margin-right: 10px;
+	    padding: 5px 7px;
+	    position: absolute;
+	    top: 0;
+	    line-height: 24px;
+	    white-space: nowrap;
+	    
+	    &:before{
+	    	border-color: transparent transparent transparent #DB5050;
+		    border-style: solid;
+		    border-width: 6px;
+		    content: "";
+		    display: block;
+		    right: -13px;
+		    position: absolute;
+		    top: 11px;
+	    }
+	}
+	
+	&.nopopup_validate label.error,
+	label.error.nopopup{
+		position: static;
+		background: #FDF7F7;
+		color: #DB5050;
+	    padding: 5px 7px;
+	    line-height: 24px;
+	    display: block;
+	    border: 0 none;
+	    margin: 0;
+	    
+	    &:before{
+	    	display: none;
+	    }
+	}
+}
