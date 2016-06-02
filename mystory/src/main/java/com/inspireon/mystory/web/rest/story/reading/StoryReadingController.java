@@ -113,9 +113,9 @@ public class StoryReadingController extends AbstractBaseController{
 		
 		List<RecommendedStoryViewAdapter> recommendedStories = new ArrayList<RecommendedStoryViewAdapter>();
 		
-		for (Story story : recommendationService.recommendStories(excludedStories)) {
-			recommendedStories.add(new RecommendedStoryViewAdapter(story));
-		}
+		//for (Story story : recommendationService.recommendStories(excludedStories)) {
+		//	recommendedStories.add(new RecommendedStoryViewAdapter(story));
+		//}
 		
 		return recommendedStories;
 	}
