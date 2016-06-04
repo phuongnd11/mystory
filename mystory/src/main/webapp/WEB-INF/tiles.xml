@@ -46,7 +46,7 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
 	</definition>
 	
-	<definition name="homePage" extends="simpleLayout">
+	<definition name="homePage" extends="baseLayout">
 		<put-attribute name="title" value="home" />
 		<put-attribute name="logobar">
             <definition template="/WEB-INF/jsp/logobars/logobarBase.jsp">
