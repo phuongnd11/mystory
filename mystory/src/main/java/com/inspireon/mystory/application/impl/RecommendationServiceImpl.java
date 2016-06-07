@@ -32,13 +32,17 @@ public class RecommendationServiceImpl implements RecommendationService {
 		
 		HomeViewCondition condition = new HomeViewCondition(HomeViewCondition.DEFAULT_TYPE, HomeViewCondition.NO_TAG, HomeViewCondition.FIRST_PAGE);
 		
-		List<Story> topHotStories = storyRankingService.getTopHot(condition).subList(START_INDEX, END_INDEX);
+		List<Story> topHotStories = storyRankingService.getTopHot(condition);
+		topHotStories.subList(START_INDEX, topHotStories.size() > END_INDEX ? END_INDEX : topHotStories.size());
 		
-		List<Story> topLegendStories = storyRepo.findTopLegend(condition).subList(START_INDEX, END_INDEX);
+		List<Story> topLegendStories = storyRepo.findTopLegend(condition);
+		topLegendStories.subList(START_INDEX, topLegendStories.size() > END_INDEX ? END_INDEX : topLegendStories.size());
 		
-		List<Story> topNewStories = storyRepo.findTopLastCommented(condition).subList(START_INDEX, END_INDEX);
+		List<Story> topNewStories = storyRepo.findTopLastCommented(condition);
+		topNewStories.subList(START_INDEX, topNewStories.size() > END_INDEX ? END_INDEX : topNewStories.size());
 		
-		List<Story> topCommentedStories = storyRepo.findTopCommented(condition).subList(START_INDEX, END_INDEX);
+		List<Story> topCommentedStories = storyRepo.findTopCommented(condition);
+		topCommentedStories.subList(START_INDEX, topCommentedStories.size() > END_INDEX ? END_INDEX : topCommentedStories.size());
 		
 		Set<Story> recommendedSet = new HashSet<Story>(20);
 		
@@ -52,6 +56,6 @@ public class RecommendationServiceImpl implements RecommendationService {
 		
 		Collections.shuffle(recommendedStories);
 		
-		return recommendedStories.subList(START_INDEX, END_INDEX);
+		return recommendedStories.subList(START_INDEX, recommendedStories.size() > END_INDEX ? END_INDEX : recommendedStories.size());
 	}
 }
