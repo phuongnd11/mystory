@@ -107,7 +107,7 @@ public class StoryTellingController extends AbstractBaseController {
 	public ModelAndView prepareEditingPage(@PathVariable("storyId") String storyId) {
 		
 		try {
-			Story story = storyRepo.find(storyId);
+			Story story = storyRepo.findByFriendlyUrl(storyId);
 			Story originalStory = storyRepo.find(story.originalStoryId());
 
 			List<ChapterViewAdapter> eligibleOriginalStory = suggestEligibleOriginalStories(story.author(), story);

@@ -1,5 +1,6 @@
 package com.inspireon.mystory.persistence;
 
+import java.text.Normalizer;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,10 +69,31 @@ public class StoryRepoTest {
 	    Assert.assertNotNull(storyListByOriginalId);
 	}
 	
+	@Test
+	public void testFriendLy() {
+		List<Story> stories = storyRepo.findAll();
+		for (Story story : stories) {
+			if (story.friendlyUrl() == null) {
+				String normal = Normalizer.normalize(story.title(), Normalizer.Form.NFD);
+				String url = normal.replaceAll("\\p{M}", "").replaceAll("Đ", "D").replaceAll("đ", "d").replace(" ", "-");
+				story.setFriendlyUrl(url);
+				try {
+					storyRepo.store(story);
+				} catch (Exception e) {
+					
+				}
+			}
+		}
+		stories = storyRepo.findAll();
+		for (Story story : stories) {
+			Assert.assertNotNull(story.friendlyUrl());
+		}
+	}
+	
 	@Ignore
 	@Test
 	public void findStoriesEligibleToBeOriginalChapter_Successfully(){
-
+		
 		String username = "blueiris";
 		
 		List<Story> storiesEligibleToBeOriginalChapter = storyRepo.findStoriesEligibleToBeOriginalChapter(username);

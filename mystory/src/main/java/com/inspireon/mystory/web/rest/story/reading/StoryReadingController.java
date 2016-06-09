@@ -64,8 +64,8 @@ public class StoryReadingController extends AbstractBaseController{
 				// if user did not log in, we consider he/she is guest
 				reader = MystoryUserReference.getLoggedInUser().getUsername();
 			} 
-				
-			Story inHandStory = storyRepo.find(storyId);
+//			storyId = storyId.substring(storyId.lastIndexOf("-")+1);	
+			Story inHandStory = storyRepo.findByFriendlyUrl(storyId);
 			
 			User author = userRepo.findByUsername(inHandStory.author());
 			
@@ -149,4 +149,5 @@ public class StoryReadingController extends AbstractBaseController{
 		}
 		return menuCategories;
 	}
+
 }

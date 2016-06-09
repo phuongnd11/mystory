@@ -43,7 +43,7 @@
 					<img class="featured_img" src="${ story.featuredImage }" />
 					<div class="story_item_content">
 						<h2 class="topic_name">
-							<a href="<c:url value='/story/${story.id}'/>"><c:out value="${story.title}"/></a>
+							<a href="<c:url value='/story/${story.friendUrl}'/>"><c:out value="${story.title}"/></a>
 						</h2>
 						<div class="excerpt">${ story.content }</div>
 						<div class="home_story_category"><span><spring:message code="label.story.in"/></span><a href="<c:url value='/tag/${story.categoryName}'/>" >${story.categoryDisplayName }</a></div>

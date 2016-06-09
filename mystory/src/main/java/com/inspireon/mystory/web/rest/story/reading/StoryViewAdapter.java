@@ -2,6 +2,7 @@ package com.inspireon.mystory.web.rest.story.reading;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,6 +28,10 @@ public class StoryViewAdapter implements Serializable {
 	private final String reader;
 	private final I18NUtils i18nUtils;
 
+	public static void main(String[] args) {
+		System.out.println("mot title rất dài và nhiều ký tự đặc biệt !%$$& (*&()4 *&^%*& ... <html> </html>".replaceAll("\\<[^>]*>","").replaceAll("[^\\w\\s]",""));
+	}
+	
 	public StoryViewAdapter(Story story, List<Story> siblingChapters, User author, String reader, I18NUtils i18nUtils) {
 		this.story = story;
 		this.siblingChapters = siblingChapters;
@@ -149,5 +154,9 @@ public class StoryViewAdapter implements Serializable {
 				i18nUtils.getMessage(I18NCode.TIME_JUST_NOW), i18nUtils.getMessage(I18NCode.TIME_A_MINUTE_AGO),
 				i18nUtils.getMessage(I18NCode.TIME_MINUTES_AGO), i18nUtils.getMessage(I18NCode.TIME_AN_HOUR_AGO),
 				i18nUtils.getMessage(I18NCode.TIME_HOURS_AGO), i18nUtils.getMessage(I18NCode.TIME_YESTERDAY), i18nUtils.getMessage(I18NCode.TIME_DAYS_AGO)); 
+	}
+	
+	public String getFriendUrl() {
+		return story.friendlyUrl();
 	}
 }

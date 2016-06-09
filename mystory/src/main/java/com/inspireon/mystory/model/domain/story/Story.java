@@ -1,5 +1,6 @@
 package com.inspireon.mystory.model.domain.story;
 
+import java.text.Normalizer;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -57,6 +58,7 @@ public class Story extends Entity<Story>{
 
     private Status status;
     
+    private String friendlyUrl;
     // ---------------------------------- Constructors --------------------------------- //
 	public Story(String author, String title, String content, 
 			String originalStoryId, ImageGroup featuredImage, Tag tag) {
@@ -136,6 +138,14 @@ public class Story extends Entity<Story>{
 		return tag;
 	}
 	
+	public String friendlyUrl() {
+		return friendlyUrl;
+	}
+
+	public void setFriendlyUrl(String friendlyUrl) {
+		this.friendlyUrl = friendlyUrl;
+	}
+
 	public Date lastCommentedTime() {
 		return lastCommentedTime;
 	}

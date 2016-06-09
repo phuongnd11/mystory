@@ -25,4 +25,6 @@ public interface StoryRepo extends BaseRepo<Story, String>{
 	List<Story> findRecentStoriesByAuthor(String author, Date cutOffTime);
 	
 	List<Story> findTopLastCommented(HomeViewCondition condition);
+	
+	Story findByFriendlyUrl(String url);
 }

@@ -87,11 +87,11 @@
 					</div>
 				</c:if>
 				<div class="footer_actions">
-					<span class="fb-share-button" data-href="${siteurl}<c:url value='story/${storyDetail.id }' />" data-type="button_count"></span>
+					<span class="fb-share-button" data-href="${siteurl}<c:url value='story/${storyDetail.friendUrl }' />" data-type="button_count"></span>
 					<a href="#commentform" class="btn btn_important post_action"><spring:message code="label.action.comment"/></a>
 					
 					<sec:authorize access="canEditStory('${storyDetail.author.name}')" >				
-						<a href="<c:url value='/story/editStory/${ storyDetail.id }'/>"class="btn post_action"><spring:message code="label.action.edit"/></a>
+						<a href="<c:url value='/story/editStory/${ storyDetail.friendUrl }'/>"class="btn post_action"><spring:message code="label.action.edit"/></a>
 					</sec:authorize>
 				</div>
 			</div>
@@ -190,7 +190,7 @@
 			<div class="post_item_inner">
 				<form action="<c:url value='/comment/add' />" class="nopopup_validate" method="post" id="commentform">
 					<textarea class="mys_input full_width_textarea" name="content" id="mys-input-comment-new"></textarea>
-					<input type="hidden" value="${storyDetail.id}" name="storyId">
+					<input type="hidden" value="${storyDetail.friendUrl}" name="storyId">
 					<input type="submit" class="btn btn_important submit_comment post_action" id="submit_comment" value="<spring:message code="label.story.send.comment" />" />
 				</form>
 			</div>

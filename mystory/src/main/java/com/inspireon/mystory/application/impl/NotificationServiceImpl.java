@@ -82,7 +82,7 @@ public class NotificationServiceImpl implements NotificationService{
 					// group by author
 					for(Comment comment : comments) authors.add(comment.author());
 					if(authors.size() > 0){
-						Notification newNotifi = new Notification(userId, relation.objectId(), relation.objectId(), storyRepo.find(relation.objectId()).title(),
+						Notification newNotifi = new Notification(userId, relation.objectId(), relation.objectId(), storyRepo.findByFriendlyUrl(relation.objectId()).title(),
 								ActionType.COMMENT, authors.size(), comments.get(comments.size()-1).author(), new Date(), comments.get(comments.size()-1).submittedDate());
 						
 						notifications.add(newNotifi);

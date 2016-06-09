@@ -19,7 +19,7 @@ public class RecommendedStoryViewAdapter implements Serializable {
 	}
 	
 	public String getUrl() {
-		return "/story/" + story.id();
+		return "/story/" + story.friendlyUrl();
 	}
 	
 	public String getShortTitle() {

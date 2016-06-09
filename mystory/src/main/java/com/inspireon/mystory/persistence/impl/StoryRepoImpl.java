@@ -134,4 +134,9 @@ public class StoryRepoImpl extends BaseRepoImpl<Story, String> implements StoryR
 		
 		return getTemplate().find(new Query().addCriteria(criteria), Story.class);
 	}
+
+	@Override
+	public Story findByFriendlyUrl(String url) {
+		return getTemplate().findOne(new Query().addCriteria(Criteria.where("friendlyUrl").is(url)), Story.class);
+	}
 }

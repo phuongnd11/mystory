@@ -69,4 +69,8 @@ public class StoryEditingViewAdapter {
 		else 
 			return StringUtils.EMPTY;
 	}
+	
+	public String getFriendUrl() {
+		return story.friendlyUrl();
+	}
 }

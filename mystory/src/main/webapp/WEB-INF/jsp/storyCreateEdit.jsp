@@ -4,11 +4,11 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<form id="story_telling_form" class="nopopup_validate" method="post" action="<c:choose><c:when test="${ not empty story.id }"><c:url value='/story/edit'/></c:when><c:otherwise><c:url value='/story/tell'/></c:otherwise></c:choose>" > 	
+<form id="story_telling_form" class="nopopup_validate" method="post" action="<c:choose><c:when test="${ not empty story.friendUrl }"><c:url value='/story/edit'/></c:when><c:otherwise><c:url value='/story/tell'/></c:otherwise></c:choose>" > 	
 	<div class="content_wrapper">
 		<div class="new_story_editor">
 			<div class="col-md-9">
-				<input type="hidden" name="id" value="${ story.id }" />
+				<input type="hidden" name="id" value="${ story.friendUrl }" />
 				<div class="form-group">
 					<input type="text" id="story_title" maxlength="200" name="title" class="full_width_input form-control" placeholder="<spring:message code="label.story.title"/>" value="<c:out value='${story.title}'/>"/>
 				</div>
@@ -58,7 +58,7 @@
 						<legend><spring:message code="label.complete"/></legend>
 					</fieldset>
 					<button id="story-telling_submit" class="btn btn_important half_width_input_left" onclick="$('#story_telling_form').submit();">
-						<c:choose><c:when test="${ not empty story.id }"><spring:message code="label.edit.story"/></c:when><c:otherwise><spring:message code="label.create.story"/></c:otherwise></c:choose>
+						<c:choose><c:when test="${ not empty story.friendUrl }"><spring:message code="label.edit.story"/></c:when><c:otherwise><spring:message code="label.create.story"/></c:otherwise></c:choose>
 					</button>
 					<a href="javascript:history.go(-1)" class="btn half_width_input_right"><spring:message code="label.btn.back" /></a>
 				</div>

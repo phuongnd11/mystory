@@ -1,5 +1,7 @@
 package com.inspireon.mystory.application.impl;
 
+import java.text.Normalizer;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -51,8 +53,16 @@ public class StoryTellingServiceImpl implements StoryTellingService {
 	@Override
 	public String tellNewStory(String tellerName, String title, String content,
 			String originalStoryId, ImageGroup featuredImage, Tag tag) {
+		Story storyUrl = null;
+		String friendUrl = getFriendUrl(title);
+		storyUrl = storyRepo.findByFriendlyUrl(friendUrl);
+
+		if (storyUrl != null) {
+			friendUrl = getFriendUrl(title) + "-" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		}
 		
 		Story newStory = new Story(tellerName, title, content, originalStoryId, featuredImage, tag);
+		newStory.setFriendlyUrl(friendUrl);
 		
 		try {
 			storyRepo.store(newStory);
@@ -76,7 +86,7 @@ public class StoryTellingServiceImpl implements StoryTellingService {
 		postToNewsFeedOfFollowers(teller, newStory);
 		postToHomeOfCommunity(newStory);
 		
-		return newStory.id();
+		return newStory.friendlyUrl();
 	}
 	
 	private void postToWallOfTeller(String tellerName, Story newStory) {
@@ -123,7 +133,7 @@ public class StoryTellingServiceImpl implements StoryTellingService {
 			ImageGroup newFeaturedImage, Tag newTag) {
 
 		try {
-			Story story = storyRepo.find(storyId);
+			Story story = storyRepo.findByFriendlyUrl(storyId);
 				
 			// check permission for edit this story
 			Version lastVersion = new Version(story.content(), story.lastEditedBy(), story.lastEditedTime());
@@ -150,5 +160,14 @@ public class StoryTellingServiceImpl implements StoryTellingService {
 		story.close();
 		
 		storyRepo.store(story);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(getFriendUrl("một title rất dài và nhiều ký tự đặc biệt !%$$& (*&()4 *&^%*& ... <html> </html>"));
+	}
+	public static String getFriendUrl(String title) {
+		String normal = Normalizer.normalize(title, Normalizer.Form.NFD);
+		String url = normal.replaceAll("\\p{M}", "").replaceAll("Đ", "D").replaceAll("đ", "d").replaceAll("\\<[^>]*>","").replaceAll("[^\\w\\s]","").replaceAll("\\s+", " ").trim().replace(" ", "-");
+		return url;
 	}
 }

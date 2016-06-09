@@ -40,7 +40,7 @@ public class CommentingServiceImpl implements CommentingService {
 			logger.error(e, e);
 		}
 		
-		Story story = storyRepo.find(storyId);
+		Story story = storyRepo.findByFriendlyUrl(storyId);
 		
 		story.addComment(comment);
 		

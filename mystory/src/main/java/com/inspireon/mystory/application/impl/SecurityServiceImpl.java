@@ -27,7 +27,7 @@ public class SecurityServiceImpl implements SecurityService {
 
 	@Override
 	public boolean checkStoryAuthor(String storyId, String editor){
-		Story story = storyRepo.find(storyId);
+		Story story = storyRepo.findByFriendlyUrl(storyId);
 		if (story != null) { 
 			return story.author().equalsIgnoreCase(editor);
 		} else {
