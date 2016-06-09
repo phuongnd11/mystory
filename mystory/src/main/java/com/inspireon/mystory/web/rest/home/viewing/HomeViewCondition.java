@@ -20,7 +20,9 @@ public class HomeViewCondition extends PageRequest{
 	
 	public static final String NO_TAG = "all";
 	
-	public static final int NUMBER_OF_DAYS = 100;
+	public static final int NUMBER_OF_DAYS = 100; // Three months
+	
+	public static final int THREE_YEARS = 1100; // Three years
 	
 	private Type type;
 	
@@ -35,8 +37,8 @@ public class HomeViewCondition extends PageRequest{
 		this.type = Type.valueOf(type.toUpperCase());
 		this.tag = Tag.valueOf(category.toUpperCase());
 		this.endDate = new Date(); //current date
-		this.startDate = DateUtils.substractDate(endDate, NUMBER_OF_DAYS);
-	}
+		this.startDate = DateUtils.substractDate(endDate, THREE_YEARS);
+	}	
 	
 	public HomeViewCondition(int page) {
 		super(page - 1, DEFAULT_PAGE_SIZE);
