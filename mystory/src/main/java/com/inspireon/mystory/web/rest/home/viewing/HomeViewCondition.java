@@ -20,9 +20,9 @@ public class HomeViewCondition extends PageRequest{
 	
 	public static final String NO_TAG = "all";
 	
-	public static final int NUMBER_OF_DAYS = 100; // Three months
+	public static final int NUMBER_OF_DAYS = 100;// Three months
 	
-	public static final int THREE_YEARS = 1100; // Three years
+	public static final int THREE_YEARS = 1100;// Three years
 	
 	private Type type;
 	
