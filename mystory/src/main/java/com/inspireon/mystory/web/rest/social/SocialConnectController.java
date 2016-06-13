@@ -67,7 +67,7 @@ public class SocialConnectController extends AbstractBaseController{
 		@Value(value = "${facebook.app.exchangekey}")
 		private String exchangeKey;
 		
-		private String facebookRedirect = "http://mystory.vn:8080/social/facebookauthentication?_spring_security_remember_me=true";
+		private String facebookRedirect = "http://chuyentrolinhtinh.vn/social/facebookauthentication?_spring_security_remember_me=true";
 		
 		@Autowired
 		private UserService userService;
