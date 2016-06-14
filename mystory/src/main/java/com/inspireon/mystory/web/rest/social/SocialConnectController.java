@@ -109,6 +109,7 @@ public class SocialConnectController extends AbstractBaseController{
 			
 			String code = request.getParameter("code");
 			String accessToken = getAccessToken(code);
+			logger.info("------------ FaceBook access token: " + accessToken);
 			User user = null;
 				
 			try{
