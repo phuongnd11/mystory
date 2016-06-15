@@ -56,7 +56,7 @@
 					</c:choose>
 					<div class="story_item_content">
 						<h2 class="topic_name">
-							<a href="<c:url value='/story/${story.id}'/>"><c:out value="${story.title}"/></a>
+							<a href="<c:url value='/story/${story.friendUrl}'/>"><c:out value="${story.title}"/></a>
 						</h2>
 						<div class="excerpt">${ story.content }</div>
 						<%--<p class="post_subinfo">
