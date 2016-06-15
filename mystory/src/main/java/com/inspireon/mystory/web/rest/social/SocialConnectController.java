@@ -118,7 +118,7 @@ public class SocialConnectController extends AbstractBaseController{
 				
 				String email = facebook.userOperations().getUserProfile().getEmail();
 				String username = facebook.userOperations().getUserProfile().getName();
-				String facebookUsername = facebook.userOperations().getUserProfile().getUsername();
+				String facebookUsername = facebook.userOperations().getUserProfile().getId();
 				
 				User existingUser = userRepo.findByUsername(username);
 				
