@@ -52,7 +52,7 @@
 	</beans:bean>
 
 	<beans:bean id="mystoryLogInSuccessHandler"
-		class="com.inspireon.mystory.web.rest.security.MyStoryLogInSuccessHandler">
+		class="com.inspireon.chuyentrolinhtinh.web.rest.security.MyStoryLogInSuccessHandler">
 		<beans:property name="useReferer" value="true" />
 	</beans:bean>
 
@@ -70,18 +70,18 @@
 	<beans:bean id='bCryptPasswordEncoder' class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder'/>
 		    
 	<beans:bean id="mystoryUserService"
-	    class="com.inspireon.mystory.web.rest.security.SpringUserService">
+	    class="com.inspireon.chuyentrolinhtinh.web.rest.security.SpringUserService">
 	</beans:bean>
 	
    <!-- START - SECURITY: ROLE, PERMISSION -->
-   	<beans:bean id="mysSecurityMamager" class="com.inspireon.mystory.web.rest.security.MysSecurityManager">
+   	<beans:bean id="mysSecurityMamager" class="com.inspireon.chuyentrolinhtinh.web.rest.security.MysSecurityManager">
    		<beans:constructor-arg value="role_permission.properties"></beans:constructor-arg>
 	</beans:bean>
 	 	  
-	<beans:bean id="expressionHandler" class="com.inspireon.mystory.web.rest.security.MysSecurityExpressionHandler"/>
+	<beans:bean id="expressionHandler" class="com.inspireon.chuyentrolinhtinh.web.rest.security.MysSecurityExpressionHandler"/>
 
 
-	<beans:bean id="webSecurityExpressionHandler" class="com.inspireon.mystory.web.rest.security.web.MysSecurityWebExpressionHandler"/>
+	<beans:bean id="webSecurityExpressionHandler" class="com.inspireon.chuyentrolinhtinh.web.rest.security.web.MysSecurityWebExpressionHandler"/>
 	
 
 	<!-- END - SECURITY: ROLE, PERMISSION -->   

@@ -11,7 +11,7 @@
 	</appender>
 
 	<appender name="rolling-file"
-		class="com.inspireon.mystory.common.logging.ExtendedDailyRollingFileAppender">
+		class="com.inspireon.chuyentrolinhtinh.common.logging.ExtendedDailyRollingFileAppender">
 		<param name="file" value="C:/logs/mystory/mystory.log" />
 		<param name="datePattern" value="'.'yyyy-MM-dd" />
 		<param name="maxNumberOfDays" value="14" />

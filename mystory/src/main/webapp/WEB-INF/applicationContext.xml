@@ -14,27 +14,27 @@
     <mvc:annotation-driven />
     <context:annotation-config/>
     
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.base" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.user" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.home" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.home.viewing" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.story.reading" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.story.telling" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.story.commenting" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.story.generating" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.category" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.voting" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.image" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.shared.prepare" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.wall.viewing" />
-    <context:component-scan base-package="com.inspireon.mystory.web.rest.social" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.base" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.user" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.home" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.home.viewing" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.story.reading" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.story.telling" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.story.commenting" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.story.generating" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.category" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.voting" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.image" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.shared.prepare" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.wall.viewing" />
+    <context:component-scan base-package="com.inspireon.chuyentrolinhtinh.web.rest.social" />
     
     
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:mystory.properties</value>
+                <value>classpath:chuyentrolinhtinh.properties</value>
                 <value>classpath:mongo.properties</value>
             </list>
         </property>
@@ -61,7 +61,7 @@
 	    <property name="defaultEncoding" value="UTF-8"/>
 	</bean>
 	 
-	<bean id="i18NInterceptor" class="com.inspireon.mystory.web.rest.shared.i18n.I18NInterceptor">
+	<bean id="i18NInterceptor" class="com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NInterceptor">
 	</bean>
  
      <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
@@ -73,11 +73,11 @@
      		<mvc:mapping path="/**"/>
      		<mvc:exclude-mapping path="/resources/**"/>
      		<mvc:exclude-mapping path="/image/**"/>     		
-     		<bean class="com.inspireon.mystory.web.rest.shared.i18n.I18NInterceptor" />
+     		<bean class="com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NInterceptor" />
      	</mvc:interceptor>    
      </mvc:interceptors>  	
      
-    <bean id="i18NUtils" class="com.inspireon.mystory.web.rest.shared.i18n.I18NUtils"></bean>
+    <bean id="i18NUtils" class="com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NUtils"></bean>
 	<!-- END -->									 
 		
 	<import resource="applicationContext-service.xml"/>

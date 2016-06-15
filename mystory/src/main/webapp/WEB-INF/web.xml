@@ -71,13 +71,13 @@
   <context-param>
 	    <param-name>contextConfigLocation</param-name>
 	    <param-value>
-	    	/WEB-INF/mystory-dispatcher-servlet.xml
+	    	/WEB-INF/chuyentrolinhtinh-dispatcher-servlet.xml
 	    	/WEB-INF/applicationContext.xml
 	    </param-value>
   </context-param>
    	 
   <servlet>
-		<servlet-name>mystory-dispatcher</servlet-name>
+		<servlet-name>chuyentrolinhtinh-dispatcher</servlet-name>
 		<servlet-class>
 			org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
@@ -85,7 +85,7 @@
   </servlet>
 	
   <servlet-mapping>
-	    <servlet-name>mystory-dispatcher</servlet-name>
+	    <servlet-name>chuyentrolinhtinh-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
   </servlet-mapping>
   
