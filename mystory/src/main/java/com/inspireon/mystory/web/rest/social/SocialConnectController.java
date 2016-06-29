@@ -168,6 +168,10 @@ public class SocialConnectController extends AbstractBaseController{
 						rememberMeServices.loginSuccess(request, response, authentication);
 						
 						return new ModelAndView(REDIRECT_HOME);
+					} else {
+						// Standard register 1st
+						// FB register 2nd
+						return new ModelAndView(REDIRECT_REGISTER);
 					}
 					
 				}
