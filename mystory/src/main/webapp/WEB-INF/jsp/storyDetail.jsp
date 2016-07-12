@@ -66,7 +66,7 @@
 								<ul>
 									<c:forEach items="${storyDetail.previousChapters }" var="pChap">
 										<li>
-											<a href="<c:url value='/story/${pChap.id}' />">${pChap.title}</a>
+											<a href="<c:url value='/story/${pChap.friendUrl}' />">${pChap.title}</a>
 										</li>
 									</c:forEach>
 								</ul>
@@ -78,7 +78,7 @@
 								<ul>
 									<c:forEach items="${storyDetail.nextChapters }" var="nChap">
 										<li>
-											<a href="<c:url value='/story/${nChap.id}' />">${nChap.title}</a>
+											<a href="<c:url value='/story/${nChap.friendUrl}' />">${nChap.title}</a>
 										</li>
 									</c:forEach>
 								</ul>

@@ -16,4 +16,8 @@ public final class ChapterViewAdapter {
 	public String getTitle() {
 		return story.title();
 	}
+	
+	public String getFriendUrl() {
+		return story.friendlyUrl();
+	}
 }
