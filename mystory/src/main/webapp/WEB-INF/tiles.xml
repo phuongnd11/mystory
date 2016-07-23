@@ -46,6 +46,14 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
 	</definition>
 	
+	<definition name="ajax" template="/WEB-INF/jsp/ajax.jsp">
+		<put-attribute name="navbar" value="/WEB-INF/jsp/ajaxnavbar.jsp" />
+		<put-attribute name="submenu" value="/WEB-INF/jsp/ajaxsubmenu.jsp" />
+		<put-attribute name="banner" value="/WEB-INF/jsp/ajaxbanner.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/ajaxbody.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/ajaxfooter.jsp" />
+	</definition>
+	
 	<definition name="homePage" extends="baseLayout">
 		<put-attribute name="title" value="home" />
 		<put-attribute name="logobar">
