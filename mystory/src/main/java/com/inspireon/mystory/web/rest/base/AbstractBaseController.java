@@ -13,7 +13,7 @@ public abstract class AbstractBaseController {
 
 	public static final String BLANK = StringUtils.EMPTY;
 	public static final String REDIRECT_LOGIN = "redirect:/login";
-	public static final String REDIRECT_HOME = "redirect:/home";
+	public static final String REDIRECT_HOME = "redirect:/ajax";
 	public static final String REDIRECT_NOT_FOUND = "redirect:/notfound";
 	public static final String REDIRECT_REGISTER = "redirect:/register";
 

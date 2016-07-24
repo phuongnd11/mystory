@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonProcessingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -50,6 +52,34 @@ public class HomeViewingController extends AbstractBaseController {
 
 	@Autowired
 	private I18NUtils i18nUtils;
+	
+	@RequestMapping("/ajax")
+    public ModelAndView helloAjaxTest() {
+        return new ModelAndView("ajax");
+    }
+ 
+    @RequestMapping(value = "/ajaxtest", method = RequestMethod.GET)
+    public @ResponseBody String getStory() {
+ 
+    	try {
+			HomeViewCondition condition = new HomeViewCondition(HomeViewCondition.DEFAULT_TYPE, HomeViewCondition.NO_TAG, HomeViewCondition.FIRST_PAGE);
+
+			ObjectMapper mapper = new ObjectMapper();
+	        String json = "";
+	        try {
+	            json = mapper.writeValueAsString(getHomeToView(condition));
+	        } catch (JsonProcessingException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        }
+			
+			return json;
+		
+		} catch (Exception e) {
+			
+		}
+    	return null;
+    }
 	
 	@RequestMapping(method = RequestMethod.GET, value = HOME_URL)
 	public ModelAndView viewHome() {	
