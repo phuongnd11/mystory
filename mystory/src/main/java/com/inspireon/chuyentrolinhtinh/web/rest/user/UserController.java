@@ -15,7 +15,7 @@ import com.inspireon.chuyentrolinhtinh.application.UserService;
 import com.inspireon.chuyentrolinhtinh.exception.UserNotFoundException;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.web.rest.base.AbstractBaseController;
-import com.inspireon.chuyentrolinhtinh.web.rest.security.MystoryUserReference;
+import com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostUserReference;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.context.MystoryUser;
 
 @Controller
@@ -32,7 +32,7 @@ public class UserController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{username}")
 	public ModelAndView viewUserProfile(@PathVariable("username") String username) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		try {
 			User user = userService.getUserInfo(username);
 			if (currentUser != null)
@@ -73,7 +73,7 @@ public class UserController extends AbstractBaseController{
 	public @ResponseBody 
 	Response updateLastViewedNotification(){
 		
-		MystoryUser user = MystoryUserReference.getLoggedInUser();
+		MystoryUser user = MyPostUserReference.getLoggedInUser();
 		
 		if(user==null) return failure(BLANK);
 		else{

@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.commons.lang.Validate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
 import com.inspireon.chuyentrolinhtinh.model.domain.shared.Entity;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
 
 @Document(collection="news_feeds")
 public class NewsFeed extends Entity<NewsFeed> {
@@ -16,7 +16,7 @@ public class NewsFeed extends Entity<NewsFeed> {
     
     private String month;
     
-    private List<Story> stories;
+    private List<Post> stories;
     
     // ---------------------------------- Constructors --------------------------------- //
 	public NewsFeed(String username, String month) {
@@ -25,7 +25,7 @@ public class NewsFeed extends Entity<NewsFeed> {
 		
 		this.username = username;
 		this.month = month;
-		stories = new ArrayList<Story>();
+		stories = new ArrayList<Post>();
 	}
     
     // ---------------------------------- Business logic --------------------------------- //
@@ -37,18 +37,18 @@ public class NewsFeed extends Entity<NewsFeed> {
 		return month;
 	}
 
-	public List<Story> stories() {
+	public List<Post> stories() {
 		return stories;
 	}
 	
-	public void addStory(Story newStory) {
+	public void addStory(Post newStory) {
 		this.stories.add(newStory);
 	}
 	
-	public void editStory(Story updatedStory) {
+	public void editStory(Post updatedStory) {
 		int index = -1;
 		
-		for (Story story : this.stories) {
+		for (Post story : this.stories) {
 			if (story.equals(updatedStory)) {
 				index = this.stories.indexOf(story);
 				break;

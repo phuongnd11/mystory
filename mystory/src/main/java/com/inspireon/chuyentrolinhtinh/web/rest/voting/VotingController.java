@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.inspireon.chuyentrolinhtinh.application.VotingService;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
 import com.inspireon.chuyentrolinhtinh.web.rest.base.AbstractBaseController;
-import com.inspireon.chuyentrolinhtinh.web.rest.security.MystoryUserReference;
+import com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostUserReference;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NCode;
 
 @Controller
@@ -28,7 +28,7 @@ public class VotingController extends AbstractBaseController{
 	private CommentRepo commentRepo;
 	
 	@Autowired
-	private StoryRepo storyRepo;
+	private PostRepo storyRepo;
 	
 	@Autowired
 	private UserRepo userRepo;
@@ -37,11 +37,11 @@ public class VotingController extends AbstractBaseController{
 	@ResponseBody
 	public Response vote(@ModelAttribute VoteCommand newVote){
 		
-		if(!MystoryUserReference.isUserLoggedIn()) {
+		if(!MyPostUserReference.isUserLoggedIn()) {
 			// define error message (user not logged in) later
 			return failure(I18NCode.MESSAGE_USER_NOTLOGIN);
 		} else {
-			String voter = MystoryUserReference.getLoggedInUser().getUsername();
+			String voter = MyPostUserReference.getLoggedInUser().getUsername();
 			
 			try {
 		        switch (newVote.getType()) {

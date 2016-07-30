@@ -5,8 +5,8 @@ import java.util.List;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.model.domain.shared.ValueObject;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
 
 public class TagSetting implements ValueObject<TagSetting> {
 	

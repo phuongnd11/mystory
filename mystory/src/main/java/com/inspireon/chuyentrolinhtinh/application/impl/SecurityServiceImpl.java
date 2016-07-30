@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import com.inspireon.chuyentrolinhtinh.application.SecurityService;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
 
@@ -17,7 +17,7 @@ import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
 public class SecurityServiceImpl implements SecurityService {
 
 	@Autowired
-	StoryRepo storyRepo;
+	PostRepo storyRepo;
 
 	@Autowired
 	CommentRepo commentRepo;
@@ -27,7 +27,7 @@ public class SecurityServiceImpl implements SecurityService {
 
 	@Override
 	public boolean checkStoryAuthor(String storyId, String editor){
-		Story story = storyRepo.findByFriendlyUrl(storyId);
+		Post story = storyRepo.findByFriendlyUrl(storyId);
 		if (story != null) { 
 			return story.author().equalsIgnoreCase(editor);
 		} else {

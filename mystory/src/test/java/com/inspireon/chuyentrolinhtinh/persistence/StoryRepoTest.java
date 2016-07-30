@@ -15,17 +15,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.image.ImageGroup;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
-import com.inspireon.chuyentrolinhtinh.web.rest.story.reading.CommentSortType;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
+import com.inspireon.chuyentrolinhtinh.web.rest.post.reading.CommentSortType;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/test-context.xml"})
 public class StoryRepoTest {
 
 	@Autowired
-	StoryRepo storyRepo;
+	PostRepo storyRepo;
 	
 	@Autowired
 	CommentRepo commentRepo;
@@ -36,7 +36,7 @@ public class StoryRepoTest {
 
 		String notExistedOriginalStoryId = null;
 		
-		List<Story> storyListByOriginalId = storyRepo.findByOriginalStoryId(notExistedOriginalStoryId);
+		List<Post> storyListByOriginalId = storyRepo.findByOriginalStoryId(notExistedOriginalStoryId);
 		
 	    Assert.assertNotNull(storyListByOriginalId);
 	}
@@ -46,9 +46,9 @@ public class StoryRepoTest {
 	public void testFindByOriginalId_notFound_returnEmptyList(){
 
 		String notExistedOriginalStoryId = "-1";
-		List<Story> emptyStoryList = Collections.emptyList();
+		List<Post> emptyStoryList = Collections.emptyList();
 		
-		List<Story> storyListByOriginalId = storyRepo.findByOriginalStoryId(notExistedOriginalStoryId);
+		List<Post> storyListByOriginalId = storyRepo.findByOriginalStoryId(notExistedOriginalStoryId);
 		
 	    Assert.assertNotNull(storyListByOriginalId);
 	    Assert.assertEquals(storyListByOriginalId, emptyStoryList);
@@ -60,9 +60,9 @@ public class StoryRepoTest {
 
 		String originalStoryId = "5289f8a2870bf270215c7720";
 		
-		List<Story> storyListByOriginalId = storyRepo.findByOriginalStoryId(originalStoryId);
+		List<Post> storyListByOriginalId = storyRepo.findByOriginalStoryId(originalStoryId);
 		
-		for (Story story : storyListByOriginalId) {
+		for (Post story : storyListByOriginalId) {
 			System.out.println(story.id());
 		}
 		
@@ -71,8 +71,8 @@ public class StoryRepoTest {
 	
 	@Test
 	public void testFriendLy() {
-		List<Story> stories = storyRepo.findAll();
-		for (Story story : stories) {
+		List<Post> stories = storyRepo.findAll();
+		for (Post story : stories) {
 			if (story.friendlyUrl() == null) {
 				String normal = Normalizer.normalize(story.title(), Normalizer.Form.NFD);
 				String url = normal.replaceAll("\\p{M}", "").replaceAll("Đ", "D").replaceAll("đ", "d").replace(" ", "-");
@@ -85,7 +85,7 @@ public class StoryRepoTest {
 			}
 		}
 		stories = storyRepo.findAll();
-		for (Story story : stories) {
+		for (Post story : stories) {
 			Assert.assertNotNull(story.friendlyUrl());
 		}
 	}
@@ -96,7 +96,7 @@ public class StoryRepoTest {
 		
 		String username = "blueiris";
 		
-		List<Story> storiesEligibleToBeOriginalChapter = storyRepo.findStoriesEligibleToBeOriginalChapter(username);
+		List<Post> storiesEligibleToBeOriginalChapter = storyRepo.findStoriesEligibleToBeOriginalChapter(username);
 		
 	    Assert.assertNotNull(storiesEligibleToBeOriginalChapter);
 	}
@@ -112,7 +112,7 @@ public class StoryRepoTest {
 		ImageGroup featuredImage = null;
 		Tag tag = Tag.LOVE_STORY;
 		
-		Story newStory = new Story(author, title, content, originalStoryId, featuredImage, tag);
+		Post newStory = new Post(author, title, content, originalStoryId, featuredImage, tag);
 		
 		// store the newly created story to repository
 		storyRepo.store(newStory);
@@ -121,7 +121,7 @@ public class StoryRepoTest {
 		String id = newStory.id();
 		
 		// retrieve this story from repository
-		Story retrievedStory = storyRepo.find(id);
+		Post retrievedStory = storyRepo.find(id);
 		
 		Assert.assertEquals(title, retrievedStory.title());
 		Assert.assertEquals(content, retrievedStory.content());
@@ -165,7 +165,7 @@ public class StoryRepoTest {
 	@Test
 	@Ignore
 	public void findStory() {
-		Story story = storyRepo.find("52ac12b9182a2af3a78ee471");
+		Post story = storyRepo.find("52ac12b9182a2af3a78ee471");
 		
 		System.out.println(story.id());
 	}
@@ -173,11 +173,11 @@ public class StoryRepoTest {
 	@Test
 	@Ignore
 	public void updateLastCommentedTime() {
-		List<Story> stories = storyRepo.findAll();
+		List<Post> stories = storyRepo.findAll();
 		
 		System.out.println(stories.size());
 		
-		for (Story story : stories) {
+		for (Post story : stories) {
 			List<Comment> comments = commentRepo.findByStoryId(story.id(), CommentSortType.ALL);
 			
 			if (comments.size() == 0) {

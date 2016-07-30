@@ -6,22 +6,22 @@ import java.util.List;
 import org.apache.commons.lang.Validate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
 import com.inspireon.chuyentrolinhtinh.model.domain.shared.Entity;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
 
 @Document(collection="homes")
 public class Home extends Entity<Home> {
 	
     private String day;
     
-    private List<Story> stories;
+    private List<Post> stories;
     
     // ---------------------------------- Constructors --------------------------------- //
 	public Home(String day) {
 		Validate.notEmpty(day);
 		
 		this.day = day;
-		this.stories = new ArrayList<Story>();
+		this.stories = new ArrayList<Post>();
 	}
     
     // ---------------------------------- Business logic --------------------------------- //
@@ -29,11 +29,11 @@ public class Home extends Entity<Home> {
 		return day;
 	}
 
-	public List<Story> stories() {
+	public List<Post> stories() {
 		return stories;
 	}
 	
-	public void addStory(Story newStory) {
+	public void addStory(Post newStory) {
 		this.stories.add(newStory);
 	}
 	

@@ -10,41 +10,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inspireon.chuyentrolinhtinh.application.RecommendationService;
-import com.inspireon.chuyentrolinhtinh.application.StoryRankingService;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
+import com.inspireon.chuyentrolinhtinh.application.PostRankingService;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeViewCondition;
 
 @Service
 public class RecommendationServiceImpl implements RecommendationService {
 	
 	@Autowired
-	public StoryRepo storyRepo;
+	public PostRepo storyRepo;
 	
 	@Autowired
-	public StoryRankingService storyRankingService; 
+	public PostRankingService storyRankingService; 
 	
 	private static final int START_INDEX = 0;
 	
 	private static final int END_INDEX = 5;
 	
-	public List<Story> recommendStories(List<Story> excludedStories) {
+	public List<Post> recommendStories(List<Post> excludedStories) {
 		
 		HomeViewCondition condition = new HomeViewCondition(HomeViewCondition.DEFAULT_TYPE, HomeViewCondition.NO_TAG, HomeViewCondition.FIRST_PAGE);
 		
-		List<Story> topHotStories = storyRankingService.getTopHot(condition);
+		List<Post> topHotStories = storyRankingService.getTopHot(condition);
 		topHotStories.subList(START_INDEX, topHotStories.size() > END_INDEX ? END_INDEX : topHotStories.size());
 		
-		List<Story> topLegendStories = storyRepo.findTopLegend(condition);
+		List<Post> topLegendStories = storyRepo.findTopLegend(condition);
 		topLegendStories.subList(START_INDEX, topLegendStories.size() > END_INDEX ? END_INDEX : topLegendStories.size());
 		
-		List<Story> topNewStories = storyRepo.findTopLastCommented(condition);
+		List<Post> topNewStories = storyRepo.findTopLastCommented(condition);
 		topNewStories.subList(START_INDEX, topNewStories.size() > END_INDEX ? END_INDEX : topNewStories.size());
 		
-		List<Story> topCommentedStories = storyRepo.findTopCommented(condition);
+		List<Post> topCommentedStories = storyRepo.findTopCommented(condition);
 		topCommentedStories.subList(START_INDEX, topCommentedStories.size() > END_INDEX ? END_INDEX : topCommentedStories.size());
 		
-		Set<Story> recommendedSet = new HashSet<Story>(20);
+		Set<Post> recommendedSet = new HashSet<Post>(20);
 		
 		recommendedSet.addAll(topHotStories);
 		recommendedSet.addAll(topLegendStories);
@@ -52,7 +52,7 @@ public class RecommendationServiceImpl implements RecommendationService {
 		recommendedSet.addAll(topCommentedStories);
 		recommendedSet.removeAll(excludedStories);
 		
-		List<Story> recommendedStories = new ArrayList<Story>(recommendedSet);
+		List<Post> recommendedStories = new ArrayList<Post>(recommendedSet);
 		
 		Collections.shuffle(recommendedStories);
 		

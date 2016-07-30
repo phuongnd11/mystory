@@ -14,9 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.image.ImageGroup;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/test-context.xml"})
@@ -26,7 +26,7 @@ public class CommentRepoTest {
 	CommentRepo commentRepo;
 	
 	@Autowired
-	StoryRepo storyRepo;
+	PostRepo storyRepo;
 	
 	@Test
 	@Ignore
@@ -65,7 +65,7 @@ public class CommentRepoTest {
 		ImageGroup featuredImage = null;
 		Tag tag = Tag.LOVE_STORY; 
 		
-		Story newStory = new Story(storyTeller, title, content, originalStoryId, featuredImage, tag);
+		Post newStory = new Post(storyTeller, title, content, originalStoryId, featuredImage, tag);
 		
 		// store the newly created story to repository
 		storyRepo.store(newStory);

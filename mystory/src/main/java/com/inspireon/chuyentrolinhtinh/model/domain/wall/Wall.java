@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.commons.lang.Validate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
 import com.inspireon.chuyentrolinhtinh.model.domain.shared.Entity;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
 
 @Document(collection="walls")
 public class Wall extends Entity<Wall>{
@@ -16,7 +16,7 @@ public class Wall extends Entity<Wall>{
     
     private String month;
     
-    private List<Story> stories;
+    private List<Post> stories;
     
     // ---------------------------------- Constructors --------------------------------- //
 	public Wall(String username, String month) {
@@ -25,7 +25,7 @@ public class Wall extends Entity<Wall>{
 		
 		this.username = username;
 		this.month = month;
-		this.stories = new ArrayList<Story>();
+		this.stories = new ArrayList<Post>();
 	}
     
     // ---------------------------------- Business logic --------------------------------- //
@@ -37,11 +37,11 @@ public class Wall extends Entity<Wall>{
 		return month;
 	}
 
-	public List<Story> stories() {
+	public List<Post> stories() {
 		return stories;
 	}
 	
-	public void addStory(Story newStory) {
+	public void addStory(Post newStory) {
 		this.stories.add(newStory);
 	}
 	

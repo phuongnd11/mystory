@@ -15,10 +15,10 @@ import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.notification.ActionType;
 import com.inspireon.chuyentrolinhtinh.model.domain.notification.Notification;
 import com.inspireon.chuyentrolinhtinh.model.domain.notification.NotificationRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.relation.Relation;
 import com.inspireon.chuyentrolinhtinh.model.domain.relation.RelationRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.Message;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
@@ -36,7 +36,7 @@ public class NotificationServiceImpl implements NotificationService{
 	private NotificationRepo notificationRepo;
 	
 	@Autowired
-	private StoryRepo storyRepo;
+	private PostRepo storyRepo;
 	
 	@Autowired
 	private UserRepo userRepo;
@@ -98,7 +98,7 @@ public class NotificationServiceImpl implements NotificationService{
 		// find all users which this user followed
 		List<Relation> userRelations = relationRepo.findUserRelationWithStoryTellers(userId);
 		if(userRelations != null && userRelations.size() >0){
-			List<Story> stories = null;
+			List<Post> stories = null;
 			for(Relation relation : userRelations){
 				String author = userRepo.find(relation.objectId()).username();
 				/*Date cutOffTime = null;
@@ -114,7 +114,7 @@ public class NotificationServiceImpl implements NotificationService{
 				
 				if(stories != null && stories.size() >0){
 					
-					for(Story story : stories){
+					for(Post story : stories){
 						Notification newNotifi = new Notification(userId, relation.objectId(), story.id(), story.title(),
 								ActionType.POST, 1, author, new Date(), story.submittedDate());
 						

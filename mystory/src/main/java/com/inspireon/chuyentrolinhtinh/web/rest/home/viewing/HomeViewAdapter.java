@@ -9,9 +9,9 @@ public class HomeViewAdapter implements Serializable {
 
 	private int page;
 	
-	private List<HomeStoryViewAdapter> stories;
+	private List<HomePostViewAdapter> stories;
 
-	public HomeViewAdapter(int page, List<HomeStoryViewAdapter> stories) {
+	public HomeViewAdapter(int page, List<HomePostViewAdapter> stories) {
 		this.page = page;
 		this.stories = stories;
 	}
@@ -20,7 +20,7 @@ public class HomeViewAdapter implements Serializable {
 		return page;
 	}
 
-	public List<HomeStoryViewAdapter> getStories() {
+	public List<HomePostViewAdapter> getStories() {
 		return stories;
 	}
 }

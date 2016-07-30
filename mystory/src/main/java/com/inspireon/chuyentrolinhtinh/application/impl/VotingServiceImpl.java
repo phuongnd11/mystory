@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.inspireon.chuyentrolinhtinh.application.VotingService;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
 
@@ -18,7 +18,7 @@ public class VotingServiceImpl implements VotingService {
 	private static final Logger logger = Logger.getLogger(VotingServiceImpl.class);
 
 	@Autowired
-	StoryRepo storyRepo;
+	PostRepo storyRepo;
 	
 	@Autowired
 	CommentRepo commentRepo;
@@ -29,7 +29,7 @@ public class VotingServiceImpl implements VotingService {
 	@Override
 	public void upVoteStory(String voter, String storyId) throws Exception {
 		
-		Story storyToVote = storyRepo.find(storyId);
+		Post storyToVote = storyRepo.find(storyId);
 		
 		if (storyToVote.isAlreadyVotedDownBy(voter)) {
 			upVoteStoryAfterVotedDown(voter, storyToVote);
@@ -38,7 +38,7 @@ public class VotingServiceImpl implements VotingService {
 		}
 	}
 
-	private void upVoteNewStory(String voter, Story storyToVote) throws Exception {
+	private void upVoteNewStory(String voter, Post storyToVote) throws Exception {
 		try {
 			storyToVote.upVote(voter);
 			storyRepo.store(storyToVote);
@@ -62,7 +62,7 @@ public class VotingServiceImpl implements VotingService {
 		}
 	}
 	
-	private void upVoteStoryAfterVotedDown(String voter, Story storyToVote) throws Exception {
+	private void upVoteStoryAfterVotedDown(String voter, Post storyToVote) throws Exception {
 		try {
 			storyToVote.unDownVote(voter);
 			storyToVote.upVote(voter);
@@ -92,7 +92,7 @@ public class VotingServiceImpl implements VotingService {
 	@Override
 	public void unUpVoteStory(String voter, String storyId) throws Exception {
 		
-		Story storyToVote = storyRepo.find(storyId);
+		Post storyToVote = storyRepo.find(storyId);
 		
 		try {
 			storyToVote.unUpVote(voter);
@@ -117,7 +117,7 @@ public class VotingServiceImpl implements VotingService {
 		}
 	}
 
-	private void downVoteNewStory(String voter, Story storyToVote) throws Exception {
+	private void downVoteNewStory(String voter, Post storyToVote) throws Exception {
 		try {
 			storyToVote.downVote(voter);
 			storyRepo.store(storyToVote);
@@ -141,7 +141,7 @@ public class VotingServiceImpl implements VotingService {
 		}
 	}
 	
-	private void downVoteStoryAfterVotedUp(String voter, Story storyToVote) throws Exception {
+	private void downVoteStoryAfterVotedUp(String voter, Post storyToVote) throws Exception {
 		try {
 			storyToVote.unUpVote(voter);
 			storyToVote.downVote(voter);
@@ -170,7 +170,7 @@ public class VotingServiceImpl implements VotingService {
 	@Override
 	public void downVoteStory(String voter, String storyId) throws Exception {
 		
-		Story storyToVote = storyRepo.find(storyId);
+		Post storyToVote = storyRepo.find(storyId);
 		
 		if (storyToVote.isAlreadyVotedUpBy(voter)) {
 			downVoteStoryAfterVotedUp(voter, storyToVote);
@@ -182,7 +182,7 @@ public class VotingServiceImpl implements VotingService {
 
 	@Override
 	public void unDownVoteStory(String voter, String storyId) throws Exception {
-		Story storyToVote = storyRepo.find(storyId);
+		Post storyToVote = storyRepo.find(storyId);
 		
 		storyToVote.unDownVote(voter);
 		

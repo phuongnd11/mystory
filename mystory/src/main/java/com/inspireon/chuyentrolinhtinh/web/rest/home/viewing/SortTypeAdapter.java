@@ -1,7 +1,7 @@
 package com.inspireon.chuyentrolinhtinh.web.rest.home.viewing;
 
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.model.domain.shared.ValueObject;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
 
 public class SortTypeAdapter {
 	

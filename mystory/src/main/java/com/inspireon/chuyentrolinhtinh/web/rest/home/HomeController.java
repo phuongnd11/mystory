@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.inspireon.chuyentrolinhtinh.web.rest.base.AbstractBaseController;
-import com.inspireon.chuyentrolinhtinh.web.rest.security.MystoryUserReference;
+import com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostUserReference;
 
 @Controller
 public class HomeController extends AbstractBaseController {
@@ -21,7 +21,7 @@ public class HomeController extends AbstractBaseController {
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String loginPage() {
 		
-		if(MystoryUserReference.getLoggedInUser() != null){
+		if(MyPostUserReference.getLoggedInUser() != null){
 			return "redirect:/home";
 		}
 		

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
 import com.inspireon.chuyentrolinhtinh.persistence.BaseRepoImpl;
-import com.inspireon.chuyentrolinhtinh.web.rest.story.reading.CommentSortType;
+import com.inspireon.chuyentrolinhtinh.web.rest.post.reading.CommentSortType;
 
 @Repository
 public class CommentRepoImpl extends BaseRepoImpl<Comment, String> implements CommentRepo{

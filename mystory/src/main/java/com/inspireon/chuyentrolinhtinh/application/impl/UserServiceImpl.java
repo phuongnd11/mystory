@@ -22,7 +22,7 @@ import com.inspireon.chuyentrolinhtinh.exception.MessageOpenFailureException;
 import com.inspireon.chuyentrolinhtinh.exception.UserNotFoundException;
 import com.inspireon.chuyentrolinhtinh.model.domain.image.ImageGroup;
 import com.inspireon.chuyentrolinhtinh.model.domain.image.ImageGroupRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.FacebookSetting;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.Message;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.Setting;

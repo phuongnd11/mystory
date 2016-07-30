@@ -27,13 +27,13 @@ import com.inspireon.chuyentrolinhtinh.exception.InvalidPasswordException;
 import com.inspireon.chuyentrolinhtinh.exception.MessageOpenFailureException;
 import com.inspireon.chuyentrolinhtinh.exception.UserNotFoundException;
 import com.inspireon.chuyentrolinhtinh.model.domain.image.ImageGroup;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.Message;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.web.rest.base.AbstractBaseController;
 import com.inspireon.chuyentrolinhtinh.web.rest.image.FileMeta;
 import com.inspireon.chuyentrolinhtinh.web.rest.image.ImageViewAdapter;
-import com.inspireon.chuyentrolinhtinh.web.rest.security.MystoryUserReference;
+import com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostUserReference;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.context.MystoryUser;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NCode;
 
@@ -51,7 +51,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/profile")
 	public ModelAndView viewUpdateUserProfile() {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -67,7 +67,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/updateAvatar")
 	public @ResponseBody Response changeAvatar(MultipartHttpServletRequest request){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			Iterator<String> itr = request.getFileNames();
 			try {
@@ -98,7 +98,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/update")
 	public ModelAndView updateUserSetting(@ModelAttribute UserSettingCommand setting) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {		
 			try {
 							
@@ -117,7 +117,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/updateTagSetting")
 	public @ResponseBody Response updateTagSetting(@RequestParam("categories[]") List<Tag> categories) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {		
 			try {
 				userService.updateTagSetting(currentUser.getUsername(), categories);
@@ -134,7 +134,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/mailbox")
 	public ModelAndView displayMailbox() {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {			
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -150,7 +150,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/inbox")
 	public @ResponseBody Response displayInBoxes() {		
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -167,7 +167,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/sent")
 	public @ResponseBody Response displaySentItems() {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {			
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -184,7 +184,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/notification")
 	public ModelAndView displayNotification() {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {	
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -200,7 +200,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/inbox/detail")
 	public @ResponseBody Response viewMessageInBoxDetail(@RequestParam("from") String from, @RequestParam("submittedTime") Long submittedTime) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {		
 			try {
 				Message message = userService.openInboxMessage(currentUser.getUsername(), from, new Date(submittedTime));
@@ -219,7 +219,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/sent/detail")
 	public @ResponseBody Response viewMessageSentDetail(@RequestParam("to") String to, @RequestParam("submittedTime") Long submittedTime) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				Message message = userService.openSentMessage(currentUser.getUsername(), to, new Date(submittedTime));
@@ -238,7 +238,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/sendMessage")
 	public @ResponseBody Response sendMessage(@RequestBody UserMessageCommand message){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				userService.sendMessage(currentUser.getUsername(), message.getTo(), message.getTitle(), message.getContent());
@@ -253,7 +253,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/replyMessage")
 	public @ResponseBody Response replyMessage(@RequestBody UserMessageCommand message){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				String to = null;
@@ -276,7 +276,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/compose")
 	public ModelAndView composeNewMessage(){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -294,7 +294,7 @@ public class UserProfileController extends AbstractBaseController{
 	public @ResponseBody 
 	Response follow(@PathVariable("username") String inspirer){
 		
-		MystoryUser user = MystoryUserReference.getLoggedInUser();
+		MystoryUser user = MyPostUserReference.getLoggedInUser();
 		
 		if(user==null) return failure();
 		else{
@@ -316,7 +316,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/unfollow/{username}")
 	public @ResponseBody Response unfollowUser(@PathVariable("username") String inspirer){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				userService.unfollowUser(currentUser.getUsername(), inspirer);
@@ -336,7 +336,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/password")
 	public ModelAndView prepareChangePassword(){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				User user = userService.getUserInfo(currentUser.getUsername());
@@ -352,7 +352,7 @@ public class UserProfileController extends AbstractBaseController{
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/updatePassword")
 	public @ResponseBody Response changePassword(@RequestBody PasswordCommand newPassword){
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		if (currentUser != null) {
 			try {
 				userService.changePassword(currentUser.getUsername(), 

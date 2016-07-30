@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
 import com.inspireon.chuyentrolinhtinh.web.rest.base.AbstractBaseController;
-import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeStoryViewAdapter;
+import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomePostViewAdapter;
 import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeViewAdapter;
 import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeViewCondition;
 import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeViewingController;
-import com.inspireon.chuyentrolinhtinh.web.rest.security.MystoryUserReference;
+import com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostUserReference;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NCode;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.i18n.I18NUtils;
 
@@ -36,7 +36,7 @@ public class WallViewingController extends AbstractBaseController {
 	private static final int FIRST_PAGE = 1;
 	
 	@Autowired
-	private StoryRepo storyRepo;
+	private PostRepo storyRepo;
 	
 	@Autowired
 	private UserRepo userRepo;
@@ -79,17 +79,17 @@ public class WallViewingController extends AbstractBaseController {
 		}
 	}
 
-	private List<HomeStoryViewAdapter> getWallToView(HomeViewCondition condition, String username) {
+	private List<HomePostViewAdapter> getWallToView(HomeViewCondition condition, String username) {
 
 		String viewer = getCurrentUsername();
 		
-		List<Story> stories = storyRepo.findByAuthor(condition, username);
-		List<HomeStoryViewAdapter> userStories = new ArrayList<HomeStoryViewAdapter>(stories.size());
+		List<Post> stories = storyRepo.findByAuthor(condition, username);
+		List<HomePostViewAdapter> userStories = new ArrayList<HomePostViewAdapter>(stories.size());
         
-		for (Story story : stories) {
+		for (Post story : stories) {
 			User author = userRepo.findByUsername(story.author());
 			
-			userStories.add(new HomeStoryViewAdapter(story, author, viewer, i18nUtils));
+			userStories.add(new HomePostViewAdapter(story, author, viewer, i18nUtils));
 		}
 		
 		return userStories;
@@ -98,8 +98,8 @@ public class WallViewingController extends AbstractBaseController {
 	private String getCurrentUsername() {
 		String viewer = null;
 		
-		if(MystoryUserReference.isUserLoggedIn()) {
-			viewer = MystoryUserReference.getLoggedInUser().getUsername();
+		if(MyPostUserReference.isUserLoggedIn()) {
+			viewer = MyPostUserReference.getLoggedInUser().getUsername();
 		}
 		
 		return viewer;

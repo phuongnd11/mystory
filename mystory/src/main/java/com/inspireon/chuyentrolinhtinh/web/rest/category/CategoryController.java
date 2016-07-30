@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.web.rest.base.AbstractBaseController;
 
 @Controller

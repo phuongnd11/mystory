@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.data.domain.PageRequest;
 
 import com.inspireon.chuyentrolinhtinh.common.util.DateUtils;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.SortTypeAdapter.Type;
 
 public class HomeViewCondition extends PageRequest{

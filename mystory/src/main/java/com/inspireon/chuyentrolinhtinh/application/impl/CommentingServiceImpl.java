@@ -10,8 +10,8 @@ import com.inspireon.chuyentrolinhtinh.application.CommentingService;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.Version;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.UserRepo;
 
@@ -24,7 +24,7 @@ public class CommentingServiceImpl implements CommentingService {
 	private CommentRepo commentRepo;
 	
 	@Autowired
-	private StoryRepo storyRepo;
+	private PostRepo storyRepo;
 
 	@Autowired
 	private UserRepo userRepo;
@@ -40,7 +40,7 @@ public class CommentingServiceImpl implements CommentingService {
 			logger.error(e, e);
 		}
 		
-		Story story = storyRepo.findByFriendlyUrl(storyId);
+		Post story = storyRepo.findByFriendlyUrl(storyId);
 		
 		story.addComment(comment);
 		

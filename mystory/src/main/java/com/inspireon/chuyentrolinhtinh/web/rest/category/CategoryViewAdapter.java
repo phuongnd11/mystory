@@ -2,7 +2,7 @@ package com.inspireon.chuyentrolinhtinh.web.rest.category;
 
 import java.io.Serializable;
 
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 
 public class CategoryViewAdapter implements Serializable{
 	

@@ -2,10 +2,10 @@ package com.inspireon.chuyentrolinhtinh.application;
 
 import java.util.List;
 
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Story;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Post;
 
 public interface RecommendationService {
 		
-	List<Story> recommendStories(List<Story> excludedStories);
+	List<Post> recommendStories(List<Post> excludedStories);
 	
 }

@@ -2,7 +2,7 @@ package com.inspireon.chuyentrolinhtinh.web.rest.wall.viewing;
 
 import java.util.List;
 
-import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeStoryViewAdapter;
+import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomePostViewAdapter;
 import com.inspireon.chuyentrolinhtinh.web.rest.home.viewing.HomeViewAdapter;
 
 public class WallViewAdapter extends HomeViewAdapter {
@@ -11,7 +11,7 @@ public class WallViewAdapter extends HomeViewAdapter {
 	
 	private String author;
 	
-	public WallViewAdapter(int page, List<HomeStoryViewAdapter> stories, String author) {
+	public WallViewAdapter(int page, List<HomePostViewAdapter> stories, String author) {
 		super(page, stories);
 		this.author = author;
 	}

@@ -14,9 +14,9 @@ import com.inspireon.chuyentrolinhtinh.model.domain.comment.Comment;
 import com.inspireon.chuyentrolinhtinh.model.domain.comment.CommentRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.notification.Notification;
 import com.inspireon.chuyentrolinhtinh.model.domain.notification.NotificationRepo;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.PostRepo;
 import com.inspireon.chuyentrolinhtinh.model.domain.relation.Relation;
 import com.inspireon.chuyentrolinhtinh.model.domain.relation.RelationRepo;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.StoryRepo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/test-context.xml"})
@@ -26,7 +26,7 @@ public class RelationRepoTest {
 	private RelationRepo relationRepo;
 	
 	@Autowired
-	private StoryRepo storyRepo;
+	private PostRepo storyRepo;
 	
 	@Autowired
 	private CommentRepo commentRepo;

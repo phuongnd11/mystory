@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.util.StringUtils;
 
-import com.inspireon.chuyentrolinhtinh.web.rest.security.MystoryUserReference;
+import com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostUserReference;
 import com.inspireon.chuyentrolinhtinh.web.rest.shared.context.MystoryUser;
 
 public class I18NUtils {
@@ -16,12 +16,12 @@ public class I18NUtils {
 	private MessageSource messageSource;
 
 	public String getMessage(String code) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		return getMessage(code, currentUser == null ? DEFAULT_LANG : currentUser.getCurrentLang());
 	}
 	
 	public String getMessage(String code, String[] args) {
-		MystoryUser currentUser = MystoryUserReference.getLoggedInUser();
+		MystoryUser currentUser = MyPostUserReference.getLoggedInUser();
 		return getMessage(code, args, currentUser == null ? DEFAULT_LANG : currentUser.getCurrentLang());
 	}
 	

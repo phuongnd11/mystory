@@ -2,7 +2,7 @@ package com.inspireon.chuyentrolinhtinh.application;
 
 import java.util.List;
 
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 
 public interface CategoryService {
 

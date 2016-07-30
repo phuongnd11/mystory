@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.inspireon.chuyentrolinhtinh.persistence.BaseRepo;
-import com.inspireon.chuyentrolinhtinh.web.rest.story.reading.CommentSortType;
+import com.inspireon.chuyentrolinhtinh.web.rest.post.reading.CommentSortType;
 
 public interface CommentRepo extends BaseRepo<Comment, String> {
 	

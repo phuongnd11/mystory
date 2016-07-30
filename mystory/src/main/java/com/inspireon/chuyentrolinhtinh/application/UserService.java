@@ -10,7 +10,7 @@ import com.inspireon.chuyentrolinhtinh.exception.InvalidPasswordException;
 import com.inspireon.chuyentrolinhtinh.exception.MessageOpenFailureException;
 import com.inspireon.chuyentrolinhtinh.exception.UserNotFoundException;
 import com.inspireon.chuyentrolinhtinh.model.domain.image.ImageGroup;
-import com.inspireon.chuyentrolinhtinh.model.domain.story.Tag;
+import com.inspireon.chuyentrolinhtinh.model.domain.post.Tag;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.Message;
 import com.inspireon.chuyentrolinhtinh.model.domain.user.User;
 import com.inspireon.chuyentrolinhtinh.web.rest.image.FileMeta;

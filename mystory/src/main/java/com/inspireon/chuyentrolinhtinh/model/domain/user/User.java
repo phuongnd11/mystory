@@ -36,7 +36,7 @@ public class User extends Entity<User>{
     
     private Status status;
     
-    private List<BookmarkStory> bookmarks;
+    private List<BookmarkPost> bookmarks;
     
     private Set<Follower> followers;
     
@@ -140,11 +140,11 @@ public class User extends Entity<User>{
 		return this.followers.contains(new Follower(username));
 	}
 
-	public List<BookmarkStory> showBookmarks() {
+	public List<BookmarkPost> showBookmarks() {
 		return bookmarks;
 	}
 
-	public void bookmarkStory(BookmarkStory story) {
+	public void bookmarkStory(BookmarkPost story) {
 		if (!bookmarks.contains(story)) {
 			bookmarks.add(story);
 		}

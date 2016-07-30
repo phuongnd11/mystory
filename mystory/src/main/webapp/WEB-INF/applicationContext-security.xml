@@ -17,7 +17,7 @@
 
 		<form-login  
 			default-target-url="/home"
-			authentication-success-handler-ref="mystoryLogInSuccessHandler" 
+			authentication-success-handler-ref="myPostLogInSuccessHandler" 
 			authentication-failure-url="/login?error=1" 
 			always-use-default-target="false"			
 		/>
@@ -51,8 +51,8 @@
 	  <beans:property name="key" value="mystoryKey2"/>
 	</beans:bean>
 
-	<beans:bean id="mystoryLogInSuccessHandler"
-		class="com.inspireon.chuyentrolinhtinh.web.rest.security.MyStoryLogInSuccessHandler">
+	<beans:bean id="myPostLogInSuccessHandler"
+		class="com.inspireon.chuyentrolinhtinh.web.rest.security.MyPostLogInSuccessHandler">
 		<beans:property name="useReferer" value="true" />
 	</beans:bean>
 
